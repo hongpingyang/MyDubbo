@@ -1,0 +1,2 @@
+slf4j=com.hong.py.logger.Log4jLoggerAdapter
+log4j=com.hong.py.logger.Slf4jLoggerAdapter

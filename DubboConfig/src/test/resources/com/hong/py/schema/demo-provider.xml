@@ -1,0 +1,21 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:hong="http://www.hong.py/schema/hong"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.hong.py/schema/hong http://www.hong.py/schema/hong/hong.xsd">
+
+    <!-- current application configuration -->
+    <hong:application name="demo-provider"/>
+
+    <!-- registry center configuration -->
+    <hong:registry address="N/A"/>
+
+    <!-- service protocol configuration -->
+    <hong:protocol name="dubbo" port="20813"/>
+
+    <!-- service configuration -->
+    <hong:service interface="com.hong.py.service.DemoService" ref="demoService"/>
+
+    <bean id="demoService" class="com.hong.py.serviceimpl.DemoServiceImpl"/>
+
+</beans>

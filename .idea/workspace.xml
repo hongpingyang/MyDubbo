@@ -1,0 +1,1708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="440a6a63-ef82-4634-b44c-5f6fe267d1cf" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/DubboSPI/target/" />
+    <ignored path="$PROJECT_DIR$/DubboConfig/target/" />
+    <ignored path="$PROJECT_DIR$/DubboRemoting/target/" />
+    <ignored path="$PROJECT_DIR$/DubboSerialization/target/" />
+    <ignored path="$PROJECT_DIR$/DubboRpc/target/" />
+    <ignored path="$PROJECT_DIR$/DubboCluster/target/" />
+    <ignored path="$PROJECT_DIR$/DubboRegistry/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5280">
+              <caret line="203" column="88" selection-start-line="203" selection-start-column="88" selection-end-line="203" selection-end-column="107" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getTagName#0;class#AbstractConfig#0" />
+                <element signature="method#appendAttributes#0;class#AbstractConfig#0" />
+                <element signature="method#appendAttributes#1;class#AbstractConfig#0" />
+                <element signature="method#isPrimitive#0;class#AbstractConfig#0" />
+                <element signature="method#checkExtension#0;class#AbstractConfig#0" />
+                <element signature="method#checkMultiExtension#0;class#AbstractConfig#0" />
+                <element signature="method#toString#0;class#AbstractConfig#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/resources/META-INF/dubbo/com.hong.py.extension.ExtensionFactory">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/extension/SpringExtensionFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4170">
+              <caret line="186" column="4" selection-start-line="186" selection-start-column="4" selection-end-line="186" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DubboCluster/src/main/java/com/hong/py/cluster/LoadBalance.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/RegistryConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/ServiceBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/ApplicationListener.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://D:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/EventListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/ReferenceBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getAdaptiveExtension</find>
+      <find>EXTENSION_INSTANCES</find>
+      <find>cachedAdaptiveClass</find>
+      <find>cachedDefaultName</find>
+      <find>injectExtension</find>
+      <find>getParameter</find>
+      <find>cachedNames</find>
+      <find>tool</find>
+      <find>beans</find>
+      <find>parseBeanDefinitions</find>
+      <find>DefaultBeanDefinitionDocumentReader</find>
+      <find>props</find>
+      <find>parameters</find>
+      <find>getProperty</find>
+      <find>convertPrimitive</find>
+      <find>checkExtension</find>
+      <find>PATTERN_NAME</find>
+      <find>PATTERN_METHOD_NAME</find>
+      <find>PATTERN_NAME_HAS_SYMBOL</find>
+      <find>hostNameCache</find>
+      <find>ref</find>
+      <find>SetRef</find>
+      <find>appendProperties</find>
+      <find>appendParameters</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/Protocol.java" />
+        <option value="$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/commonUtils/Node.java" />
+        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/RpcException.java" />
+        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/Invocation.java" />
+        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/Invoker.java" />
+        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/Exporter.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ProtocolConfig.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ApplicationConfig.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/RegistryConfig.java" />
+        <option value="$PROJECT_DIR$/DubboCluster/pom.xml" />
+        <option value="$PROJECT_DIR$/DubboCluster/src/main/java/com/hong/py/cluster/LoadBalance.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractMethodConfig.java" />
+        <option value="$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/commonUtils/LRUCache.java" />
+        <option value="$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/commonUtils/NetUtils.java" />
+        <option value="$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/commonUtils/UrlUtils.java" />
+        <option value="$PROJECT_DIR$/DubboRegistry/pom.xml" />
+        <option value="$PROJECT_DIR$/DubboRegistry/src/main/java/com/hong/py/registry/NotifyListener.java" />
+        <option value="$PROJECT_DIR$/DubboRegistry/src/main/java/com/hong/py/registry/RegistryFactory.java" />
+        <option value="$PROJECT_DIR$/DubboRegistry/src/main/java/com/hong/py/registry/Registry.java" />
+        <option value="$PROJECT_DIR$/DubboRegistry/src/main/java/com/hong/py/registry/RegistryService.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/annotation/Argument.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ArgumentConfig.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/annotation/Method.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/MethodConfig.java" />
+        <option value="$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/commonUtils/ReflectUtils.java" />
+        <option value="$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/commonUtils/CollectionUtils.java" />
+        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/ProxyFactory.java" />
+        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/Filter.java" />
+        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/Result.java" />
+        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/InvokerListener.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractInterfaceConfig.java" />
+        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/ExporterListener.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractServiceConfig.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/ServiceBean.java" />
+        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/support/ProtocolUtils.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractReferenceConfig.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/ReferenceBean.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/HongNamespaceHandler.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/pom.xml" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/resources/META-INF/spring.schemas" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/resources/META-INF/spring.handlers" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/resources/META-INF/hong.xsd" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/test/java/com/hong/py/service/DemoService.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/test/java/com/hong/py/service/Box.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/test/java/com/hong/py/serviceimpl/DemoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/test/resources/com/hong/py/schema/demo-provider.xml" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/test/java/com/hong/py/schema/HongNamespaceHandler_Test.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractConfig.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ServiceConfig.java" />
+        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ReferenceConfig.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\java\maven\repository" />
+        <option name="mavenHome" value="D:/java/apache-maven-3.2.1" />
+        <option name="userSettingsFile" value="D:\java\maven\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="DubboSPI" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="780" />
+    <option name="y" value="278" />
+    <option name="width" value="1376" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboCluster" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboCluster" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboCluster" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboCluster" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboCluster" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cluster" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="py" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="py" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="py" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="annotation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="py" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="py" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+              <item name="schema" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="py" type="462c0819:PsiDirectoryNode" />
+              <item name="extension" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="py" type="462c0819:PsiDirectoryNode" />
+              <item name="support" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="py" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="py" type="462c0819:PsiDirectoryNode" />
+              <item name="schema" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="py" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="py" type="462c0819:PsiDirectoryNode" />
+              <item name="serviceimpl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="schema" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboSPI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboSPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboSPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboSPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboSPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboSPI" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573811386281" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.hong.py.serviceimpl" />
+      <recent name="com.hong.py.service" />
+      <recent name="com.hong.py.config.spring" />
+      <recent name="com.hong.py.rpc.support" />
+      <recent name="com.hong.py.config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\IdeaJavaWorkSpace\DubboDemoAll\DubboConfig\src\main\resources" />
+      <recent name="F:\IdeaJavaWorkSpace\DubboDemoAll\DubboConfig\src\test\resources" />
+      <recent name="F:\IdeaJavaWorkSpace\DubboDemoAll\DubboConfig\src\test\resources\com\hong\py\schema" />
+      <recent name="F:\IdeaJavaWorkSpace\DubboDemoAll\DubboRegistry\src\main\java\com\hong\py\registry" />
+      <recent name="F:\IdeaJavaWorkSpace\DubboDemoAll\DubboRemoting\src\main\java\com\hong\py\remoting\exchange" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.HongNamespaceHandler_Test.testProviderXml">
+    <configuration name="ExtensionLoader_Test.test_getDefaultExtension" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DubboSPI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hong.py.extension.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hong.py.extension" />
+      <option name="MAIN_CLASS_NAME" value="com.hong.py.extension.ExtensionLoader_Test" />
+      <option name="METHOD_NAME" value="test_getDefaultExtension" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExtensionLoader_Test.test_noadaptiveMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DubboSPI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hong.py.extension.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hong.py.extension" />
+      <option name="MAIN_CLASS_NAME" value="com.hong.py.extension.ExtensionLoader_Test" />
+      <option name="METHOD_NAME" value="test_noadaptiveMethod" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HongNamespaceHandler_Test.testProviderXml" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DubboConfig" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hong.py.schema.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.hong.py.schema" />
+      <option name="MAIN_CLASS_NAME" value="com.hong.py.schema.HongNamespaceHandler_Test" />
+      <option name="METHOD_NAME" value="testProviderXml" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HongNamespaceHandler_Test.testProviderXml" />
+        <item itemvalue="JUnit.ExtensionLoader_Test.test_noadaptiveMethod" />
+        <item itemvalue="JUnit.ExtensionLoader_Test.test_getDefaultExtension" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="440a6a63-ef82-4634-b44c-5f6fe267d1cf" name="Default Changelist" comment="" />
+      <created>1573443011044</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1573443011044</updated>
+      <workItem from="1573443014237" duration="8910000" />
+      <workItem from="1573549677081" duration="39821000" />
+      <workItem from="1573889908735" duration="22879000" />
+      <workItem from="1573955346287" duration="24371000" />
+      <workItem from="1575081084239" duration="1969000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="ExtensionLoader_Test_test_getDefaultExtension - 2019.11.14 at 14h 45m 56s.xml">
+      <configuration name="ExtensionLoader_Test.test_getDefaultExtension" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ExtensionLoader_Test_test_getDefaultExtension - 2019.11.14 at 16h 03m 08s.xml">
+      <configuration name="ExtensionLoader_Test.test_getDefaultExtension" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ExtensionLoader_Test_test_getDefaultExtension - 2019.11.14 at 16h 20m 36s.xml">
+      <configuration name="ExtensionLoader_Test.test_getDefaultExtension" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ExtensionLoader_Test_test_noadaptiveMethod - 2019.11.14 at 16h 32m 38s.xml">
+      <configuration name="ExtensionLoader_Test.test_noadaptiveMethod" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HongNamespaceHandler_Test_testProviderXml - 2019.11.17 at 20h 09m 18s.xml">
+      <configuration name="HongNamespaceHandler_Test.testProviderXml" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="97950000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.29854956" />
+      <window_info id="Structure" order="1" sideWeight="0.5008183" side_tool="true" weight="0.29500756" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32700247" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32700247" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.48967797" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.328654" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32782823" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32947975" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.328654" />
+      <window_info anchor="bottom" id="Spring" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24979855" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" weight="0.25020146" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/logger/LoggerFactory.java</url>
+          <line>102</line>
+          <properties />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/logger/LoggerFactory.java</url>
+          <line>105</line>
+          <properties />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>35</line>
+          <properties />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/extension/ExtensionLoader.java</url>
+          <line>426</line>
+          <properties />
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/extension/ExtensionLoader.java</url>
+          <line>258</line>
+          <properties />
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/extension/factory/SpiExtensionFactory.java</url>
+          <line>33</line>
+          <properties />
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/extension/ExtensionLoader.java</url>
+          <line>486</line>
+          <properties />
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>47</line>
+          <properties />
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>66</line>
+          <properties />
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>80</line>
+          <properties />
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>56</line>
+          <properties />
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>131</line>
+          <properties />
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>139</line>
+          <properties />
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>142</line>
+          <properties />
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboSPI/src/test/java/com/hong/py/extension/ExtensionLoader_Test.java</url>
+          <line>144</line>
+          <properties />
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/factory/xml/DefaultBeanDefinitionDocumentReader.class</url>
+          <line>87</line>
+          <properties />
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>419</line>
+          <properties />
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>459</line>
+          <properties />
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>487</line>
+          <properties />
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>381</line>
+          <properties />
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>348</line>
+          <properties />
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/HongNamespaceHandler.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/HongNamespaceHandler.java</url>
+          <line>44</line>
+          <properties />
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/test/java/com/hong/py/schema/HongNamespaceHandler_Test.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/test/java/com/hong/py/schema/HongNamespaceHandler_Test.java</url>
+          <line>18</line>
+          <properties />
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>78</line>
+          <properties />
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractConfig.java</url>
+          <line>432</line>
+          <properties />
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractConfig.java</url>
+          <line>407</line>
+          <properties />
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractConfig.java</url>
+          <line>398</line>
+          <properties />
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractConfig.java</url>
+          <line>88</line>
+          <properties />
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractConfig.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractInterfaceConfig.java</url>
+          <line>331</line>
+          <properties />
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractInterfaceConfig.java</url>
+          <line>226</line>
+          <properties />
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractInterfaceConfig.java</url>
+          <line>196</line>
+          <properties />
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractInterfaceConfig.java</url>
+          <line>126</line>
+          <properties />
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractInterfaceConfig.java</url>
+          <line>96</line>
+          <properties />
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractMethodConfig.java</url>
+          <line>147</line>
+          <properties />
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ArgumentConfig.java</url>
+          <line>43</line>
+          <properties />
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>317</line>
+          <properties />
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>301</line>
+          <properties />
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>85</line>
+          <properties />
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/test/java/com/hong/py/schema/HongNamespaceHandler_Test.java</url>
+          <line>19</line>
+          <properties />
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/test/java/com/hong/py/schema/HongNamespaceHandler_Test.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ApplicationConfig.java</url>
+          <line>83</line>
+          <properties />
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ApplicationConfig.java</url>
+          <line>74</line>
+          <properties />
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ApplicationConfig.java</url>
+          <line>104</line>
+          <properties />
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ApplicationConfig.java</url>
+          <line>145</line>
+          <properties />
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ApplicationConfig.java</url>
+          <line>238</line>
+          <properties />
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>186</line>
+          <properties />
+          <option name="timeStamp" value="129" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>184</line>
+          <properties />
+          <option name="timeStamp" value="130" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>182</line>
+          <properties />
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>257</line>
+          <properties />
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>248</line>
+          <properties />
+          <option name="timeStamp" value="134" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>242</line>
+          <properties />
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>236</line>
+          <properties />
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>230</line>
+          <properties />
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>225</line>
+          <properties />
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>214</line>
+          <properties />
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>202</line>
+          <properties />
+          <option name="timeStamp" value="141" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>200</line>
+          <properties />
+          <option name="timeStamp" value="142" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>198</line>
+          <properties />
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>196</line>
+          <properties />
+          <option name="timeStamp" value="144" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>280</line>
+          <properties />
+          <option name="timeStamp" value="148" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>282</line>
+          <properties />
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>89</line>
+          <properties />
+          <option name="timeStamp" value="154" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>91</line>
+          <properties />
+          <option name="timeStamp" value="155" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>127</line>
+          <properties />
+          <option name="timeStamp" value="156" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>194</line>
+          <properties />
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java</url>
+          <line>216</line>
+          <properties />
+          <option name="timeStamp" value="159" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractConfig.java</url>
+          <line>428</line>
+          <properties />
+          <option name="timeStamp" value="161" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractMethodConfig.java</url>
+          <line>187</line>
+          <properties />
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractInterfaceConfig.java</url>
+          <line>150</line>
+          <properties />
+          <option name="timeStamp" value="164" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractConfig.java</url>
+          <line>202</line>
+          <properties />
+          <option name="timeStamp" value="165" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/test/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractReferenceConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2149">
+          <caret line="95" column="7" lean-forward="true" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ArgumentConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/MethodConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="37" column="24" lean-forward="true" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/support/ClassPathXmlApplicationContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/support/AbstractApplicationContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="301" selection-start-line="301" selection-end-line="301" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/support/AbstractRefreshableApplicationContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="45" column="36" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/support/AbstractXmlApplicationContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/factory/support/AbstractBeanDefinitionReader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/factory/xml/XmlBeanDefinitionReader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="196" selection-start-line="196" selection-end-line="196" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/factory/xml/DefaultNamespaceHandlerResolver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/factory/support/RootBeanDefinition.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-480">
+          <caret line="86" column="29" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="1780" column="67" selection-start-line="1780" selection-start-column="53" selection-end-line="1780" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/commonUtils/StringUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="401" selection-start-line="401" selection-end-line="401" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/factory/xml/NamespaceHandlerSupport.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/factory/xml/BeanDefinitionParserDelegate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="1047" selection-start-line="1047" selection-end-line="1047" />
+          <folding>
+            <element signature="e#47627#47628#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/factory/xml/DefaultBeanDefinitionDocumentReader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/test/resources/com/hong/py/schema/demo-provider.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractServiceConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4296">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_191/jre/lib/rt.jar!/sun/reflect/NativeConstructorAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/factory/support/SimpleInstantiationStrategy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/com.hong.py.config.AbstractConfig">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>com.hong.py.config.AbstractConfig</OriginalElement>
+          <nodes>
+            <node x="" y="">com.hong.py.config.AbstractConfig</node>
+            <node x="" y="">java.io.Serializable</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="113.0" y="75.0" />
+          <SelectedNodes />
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/BeanUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_191/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_191/src.zip!/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="497" selection-start-line="497" selection-end-line="497" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/AbstractNestablePropertyAccessor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1090">
+          <caret line="325" selection-start-line="325" selection-end-line="325" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/support/Parameter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ApplicationConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1543#1544#0" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
+            <element signature="e#1668#1669#0" expanded="true" />
+            <element signature="e#1695#1696#0" expanded="true" />
+            <element signature="e#1957#1958#0" expanded="true" />
+            <element signature="e#1987#1988#0" expanded="true" />
+            <element signature="e#2033#2034#0" expanded="true" />
+            <element signature="e#2071#2072#0" expanded="true" />
+            <element signature="e#2103#2104#0" expanded="true" />
+            <element signature="e#2131#2132#0" expanded="true" />
+            <element signature="e#3643#3644#0" expanded="true" />
+            <element signature="e#3676#3677#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/BeanWrapperImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="216" selection-start-line="216" selection-end-line="216" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractMethodConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="187" selection-start-line="187" selection-end-line="187" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/factory/FactoryBean.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/test/java/com/hong/py/schema/HongNamespaceHandler_Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runners/model/FrameworkMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="e#1464#1658#0" expanded="true" />
+            <element signature="e#1657#1658#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/statements/InvokeMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runners/ParentRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="330" selection-start-line="330" selection-end-line="330" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractInterfaceConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6358">
+          <caret line="50" column="38" lean-forward="true" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/4.3.9.RELEASE/spring-beans-4.3.9.RELEASE.jar!/org/springframework/beans/factory/config/BeanPostProcessor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ServiceConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/HongNamespaceHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="43" column="84" selection-start-line="43" selection-start-column="84" selection-end-line="43" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ReferenceConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5280">
+          <caret line="203" column="88" selection-start-line="203" selection-start-column="88" selection-end-line="203" selection-end-column="107" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getTagName#0;class#AbstractConfig#0" />
+            <element signature="method#appendAttributes#0;class#AbstractConfig#0" />
+            <element signature="method#appendAttributes#1;class#AbstractConfig#0" />
+            <element signature="method#isPrimitive#0;class#AbstractConfig#0" />
+            <element signature="method#checkExtension#0;class#AbstractConfig#0" />
+            <element signature="method#checkMultiExtension#0;class#AbstractConfig#0" />
+            <element signature="method#toString#0;class#AbstractConfig#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/resources/META-INF/dubbo/com.hong.py.extension.ExtensionFactory">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/extension/SpringExtensionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4170">
+          <caret line="186" column="4" selection-start-line="186" selection-start-column="4" selection-end-line="186" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/RegistryConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/ServiceBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/ApplicationListener.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/EventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/ReferenceBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboCluster/src/main/java/com/hong/py/cluster/LoadBalance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>DubboSPI</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: log4j:log4j:1.2.17</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
