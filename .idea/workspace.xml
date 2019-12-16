@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="440a6a63-ef82-4634-b44c-5f6fe267d1cf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/support/header/HeaderExchangeHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/ChannelHandlerDelegate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/wrapChannel/WrapChannelHandlers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandlerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/support/header/HeaderExchangeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/support/header/HeaderExchangeHandler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -75,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/support/header/HeaderExchangeHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+            <state relative-caret-position="133">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#396#397#0" expanded="true" />
@@ -89,20 +86,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandler.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandlerAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+            <state relative-caret-position="76">
+              <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/ApplicationListener.class">
+        <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
+            <state relative-caret-position="133">
+              <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -171,7 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ProtocolConfig.java" />
         <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ApplicationConfig.java" />
         <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/RegistryConfig.java" />
         <option value="$PROJECT_DIR$/DubboCluster/pom.xml" />
@@ -222,6 +218,7 @@
         <option value="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/ChannelHandlerDelegate.java" />
         <option value="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandler.java" />
         <option value="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/support/header/HeaderExchangeHandler.java" />
+        <option value="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandlerAdapter.java" />
       </list>
     </option>
   </component>
@@ -510,17 +507,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="remoting" type="462c0819:PsiDirectoryNode" />
-              <item name="exchange" type="462c0819:PsiDirectoryNode" />
-              <item name="header" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
-              <item name="DubboRemoting" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="remoting" type="462c0819:PsiDirectoryNode" />
               <item name="telnet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -775,8 +761,16 @@
       <workItem from="1573889908735" duration="22879000" />
       <workItem from="1573955346287" duration="24371000" />
       <workItem from="1575081084239" duration="1969000" />
-      <workItem from="1576503739386" duration="3874000" />
+      <workItem from="1576503739386" duration="4659000" />
     </task>
+    <task id="LOCAL-00001" summary="Test">
+      <created>1576508688935</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1576508688935</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -797,7 +791,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101824000" />
+    <option name="totallyTimeSpent" value="102609000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -827,7 +821,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.328654" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3294893" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32782823" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32947975" />
@@ -846,6 +840,36 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1322,13 +1346,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/support/AbstractRefreshableApplicationContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/support/AbstractXmlApplicationContext.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -1746,13 +1763,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/support/header/HeaderExchangeHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        <state relative-caret-position="133">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#396#397#0" expanded="true" />
             <element signature="e#423#424#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandlerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
         </state>
       </provider>
     </entry>

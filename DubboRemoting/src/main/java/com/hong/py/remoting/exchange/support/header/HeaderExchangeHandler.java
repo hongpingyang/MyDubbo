@@ -9,7 +9,7 @@ import com.hong.py.remoting.exchange.ExchangeHandler;
 import com.hong.py.remoting.transport.ChannelHandlerDelegate;
 
 /**
- *
+ * 消息处理类
  */
 public class HeaderExchangeHandler implements ChannelHandlerDelegate {
 
@@ -27,33 +27,34 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
 
     @Override
     public ChannelHandler getChannelHandler() {
-        return null;
+        return this.exchangeHandler;
     }
-
 
 
     @Override
     public void connected(Channel channel) throws RemotingException {
-
+        this.exchangeHandler.connected(channel);
     }
 
     @Override
     public void disconnected(Channel channel) throws RemotingException {
-
+        this.exchangeHandler.disconnected(channel);
     }
 
     @Override
     public void sent(Channel channel, Object message) throws RemotingException {
-
+        this.exchangeHandler.sent(channel,message);
     }
 
     @Override
     public void received(Channel channel, Object message) throws RemotingException {
-
+        this.exchangeHandler.received(channel,message);
     }
 
     @Override
     public void caught(Channel channel, Throwable exception) throws RemotingException {
-
+        this.exchangeHandler.caught(channel,exception);
     }
+
+
 }
