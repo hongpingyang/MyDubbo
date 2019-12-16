@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="440a6a63-ef82-4634-b44c-5f6fe267d1cf" name="Default Changelist" comment="" />
+    <list default="true" id="440a6a63-ef82-4634-b44c-5f6fe267d1cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/support/header/HeaderExchangeHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/ChannelHandlerDelegate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/wrapChannel/WrapChannelHandlers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandler.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/DubboSPI/target/" />
@@ -20,79 +26,74 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5280">
-              <caret line="203" column="88" selection-start-line="203" selection-start-column="88" selection-end-line="203" selection-end-column="107" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getTagName#0;class#AbstractConfig#0" />
-                <element signature="method#appendAttributes#0;class#AbstractConfig#0" />
-                <element signature="method#appendAttributes#1;class#AbstractConfig#0" />
-                <element signature="method#isPrimitive#0;class#AbstractConfig#0" />
-                <element signature="method#checkExtension#0;class#AbstractConfig#0" />
-                <element signature="method#checkMultiExtension#0;class#AbstractConfig#0" />
-                <element signature="method#toString#0;class#AbstractConfig#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/resources/META-INF/dubbo/com.hong.py.extension.ExtensionFactory">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/extension/SpringExtensionFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4170">
-              <caret line="186" column="4" selection-start-line="186" selection-start-column="4" selection-end-line="186" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DubboCluster/src/main/java/com/hong/py/cluster/LoadBalance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
+            <state relative-caret-position="437">
               <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/RegistryConfig.java">
+        <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/ChannelHandlerDispatcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="95">
+              <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/ChannelHandlerAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="25" column="60" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/wrapChannel/WrapChannelHandlers.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#338#339#0" expanded="true" />
+                <element signature="e#369#370#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/ServiceBean.java">
+        <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/ChannelHandlerDelegate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="133">
+              <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/support/header/HeaderExchangeHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#396#397#0" expanded="true" />
+                <element signature="e#423#424#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -100,7 +101,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/ApplicationListener.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="114">
               <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
             </state>
           </provider>
@@ -109,7 +110,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://D:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/EventListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="190">
               <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
@@ -118,7 +119,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/ReferenceBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
+            <state relative-caret-position="437">
               <caret line="31" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -164,15 +165,12 @@
       <find>appendParameters</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/Protocol.java" />
-        <option value="$PROJECT_DIR$/DubboSPI/src/main/java/com/hong/py/commonUtils/Node.java" />
-        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/RpcException.java" />
-        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/Invocation.java" />
-        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/Invoker.java" />
-        <option value="$PROJECT_DIR$/DubboRpc/src/main/java/com/hong/py/rpc/Exporter.java" />
         <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ProtocolConfig.java" />
         <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ApplicationConfig.java" />
         <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/RegistryConfig.java" />
@@ -218,6 +216,12 @@
         <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractConfig.java" />
         <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ServiceConfig.java" />
         <option value="$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ReferenceConfig.java" />
+        <option value="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/ChannelHandlerDispatcher.java" />
+        <option value="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/wrapChannel/ChannelHandlers.java" />
+        <option value="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/wrapChannel/WrapChannelHandlers.java" />
+        <option value="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/ChannelHandlerDelegate.java" />
+        <option value="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandler.java" />
+        <option value="$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/support/header/HeaderExchangeHandler.java" />
       </list>
     </option>
   </component>
@@ -242,9 +246,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="780" />
-    <option name="y" value="278" />
-    <option name="width" value="1376" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectView">
@@ -252,7 +256,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -340,40 +343,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="py" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
-              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="py" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="annotation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
-              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="py" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
-              <item name="DubboConfig" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="py" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-              <item name="schema" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
@@ -486,6 +455,168 @@
             <path>
               <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
               <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRegistry" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRemoting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRemoting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRemoting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRemoting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRemoting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="remoting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRemoting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="remoting" type="462c0819:PsiDirectoryNode" />
+              <item name="exchange" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRemoting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="remoting" type="462c0819:PsiDirectoryNode" />
+              <item name="exchange" type="462c0819:PsiDirectoryNode" />
+              <item name="header" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRemoting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="remoting" type="462c0819:PsiDirectoryNode" />
+              <item name="telnet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRemoting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="remoting" type="462c0819:PsiDirectoryNode" />
+              <item name="transport" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRemoting" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="remoting" type="462c0819:PsiDirectoryNode" />
+              <item name="transport" type="462c0819:PsiDirectoryNode" />
+              <item name="wrapChannel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRpc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRpc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRpc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRpc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboRpc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rpc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboSerialization" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboSerialization" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboSerialization" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboSerialization" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
+              <item name="DubboSerialization" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="serialization" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DubboDemoAll" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DubboDemoAll" type="462c0819:PsiDirectoryNode" />
               <item name="DubboSPI" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -528,6 +659,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -643,6 +775,7 @@
       <workItem from="1573889908735" duration="22879000" />
       <workItem from="1573955346287" duration="24371000" />
       <workItem from="1575081084239" duration="1969000" />
+      <workItem from="1576503739386" duration="3874000" />
     </task>
     <servers />
   </component>
@@ -664,7 +797,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97950000" />
+    <option name="totallyTimeSpent" value="101824000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -676,9 +809,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="740" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.29854956" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.30332828" />
       <window_info id="Structure" order="1" sideWeight="0.5008183" side_tool="true" weight="0.29500756" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1188,53 +1322,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DubboConfig/src/test/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractReferenceConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2149">
-          <caret line="95" column="7" lean-forward="true" selection-start-line="95" selection-start-column="7" selection-end-line="95" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/ArgumentConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/MethodConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="37" column="24" lean-forward="true" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/support/ClassPathXmlApplicationContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/support/AbstractApplicationContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="301" selection-start-line="301" selection-end-line="301" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/support/AbstractRefreshableApplicationContext.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1531,7 +1618,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/AbstractConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5280">
+        <state relative-caret-position="3344">
           <caret line="203" column="88" selection-start-line="203" selection-start-column="88" selection-end-line="203" selection-end-column="107" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1551,14 +1638,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/extension/SpringExtensionFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="171">
           <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/schema/DubboBeanDefinitionParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4170">
+        <state relative-caret-position="2641">
           <caret line="186" column="4" selection-start-line="186" selection-start-column="4" selection-end-line="186" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1568,7 +1655,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/RegistryConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="190">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1578,7 +1665,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/ServiceBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="228">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1588,21 +1675,21 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.9.RELEASE/spring-context-4.3.9.RELEASE.jar!/org/springframework/context/ApplicationListener.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
+        <state relative-caret-position="114">
           <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
         </state>
       </provider>
     </entry>
     <entry file="jar://D:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/EventListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="190">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DubboConfig/src/main/java/com/hong/py/config/spring/ReferenceBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
+        <state relative-caret-position="437">
           <caret line="31" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1612,8 +1699,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DubboCluster/src/main/java/com/hong/py/cluster/LoadBalance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
+        <state relative-caret-position="437">
           <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/ChannelHandlerDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/ChannelHandlerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="25" column="60" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/wrapChannel/WrapChannelHandlers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#338#339#0" expanded="true" />
+            <element signature="e#369#370#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/transport/ChannelHandlerDelegate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/ExchangeHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DubboRemoting/src/main/java/com/hong/py/remoting/exchange/support/header/HeaderExchangeHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="29" column="20" lean-forward="true" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#396#397#0" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
