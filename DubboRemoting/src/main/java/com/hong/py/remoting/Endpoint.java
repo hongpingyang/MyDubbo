@@ -7,7 +7,6 @@ import java.net.InetSocketAddress;
 /**
  * Endpoint. (API/SPI, Prototype, ThreadSafe)
  *
- *
  */
 public interface Endpoint {
 
@@ -57,6 +56,7 @@ public interface Endpoint {
      * Graceful close the channel.
      */
     void close(int timeout);
+
 
     void startClose();
 

@@ -5,7 +5,6 @@ import com.hong.py.annotation.SPI;
 
 /**
  * ChannelHandler. (API, Prototype, ThreadSafe)
- *
  */
 @SPI
 public interface ChannelHandler {

@@ -25,4 +25,5 @@ import com.hong.py.commonUtils.Node;
  * @see //com.hong.py.registry.support.AbstractRegistry
  */
 public interface Registry extends Node, RegistryService {
+
 }

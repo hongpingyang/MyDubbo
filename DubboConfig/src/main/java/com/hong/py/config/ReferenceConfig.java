@@ -24,4 +24,6 @@ public class ReferenceConfig<T> extends  AbstractReferenceConfig {
             id = interfaceName;
         }
     }
+
+    
 }

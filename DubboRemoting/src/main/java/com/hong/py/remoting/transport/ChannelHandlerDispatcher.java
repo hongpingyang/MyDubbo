@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
- * ChannelListenerDispatcher
+ * ChannelListenerDispatcher 管理所有 ChannelHandler
  */
 public class ChannelHandlerDispatcher implements ChannelHandler {
 

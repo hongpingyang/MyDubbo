@@ -29,11 +29,7 @@ import com.hong.py.commonUtils.Resetable;
 public interface Client extends Endpoint, Channel, Resetable {
 
     /**
-     * reconnect.
+     * reconnect. 支持重连
      */
     void reconnect() throws RemotingException;
-
-    //@Deprecated
-    //void reset(com.alibaba.dubbo.common.Parameters parameters);
-
 }
