@@ -4,7 +4,7 @@ import com.hong.py.commonUtils.URL;
 import com.hong.py.remoting.ChannelHandler;
 
 /**
- * 包装类
+ * 包装Channelhandler
  */
 public class WrapChannelHandlers {
 

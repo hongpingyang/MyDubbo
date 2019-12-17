@@ -20,14 +20,11 @@ import com.hong.py.remoting.RemotingException;
 
 /**
  * Future. (API/SPI, Prototype, ThreadSafe)
- *
- * @see com.hong.py.remoting.exchange.ExchangeChannel#request(Object)
- * @see com.hong.py.remoting.exchange.ExchangeChannel#request(Object, int)
  */
 public interface ResponseFuture {
 
     /**
-     * get result.
+     * get result.获取结果
      *
      * @return result.
      */
@@ -35,6 +32,8 @@ public interface ResponseFuture {
 
     /**
      * get result with the specified timeout.
+     * 在指定的超时时间内获取结果
+     *
      *
      * @param timeoutInMillis timeout.
      * @return result.
@@ -43,6 +42,7 @@ public interface ResponseFuture {
 
     /**
      * set callback.
+     * 回调
      *
      * @param callback
      */
@@ -50,6 +50,7 @@ public interface ResponseFuture {
 
     /**
      * check is done.
+     * 是否完成
      *
      * @return done or not.
      */

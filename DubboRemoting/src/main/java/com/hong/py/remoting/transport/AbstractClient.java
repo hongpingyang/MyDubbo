@@ -2,10 +2,12 @@ package com.hong.py.remoting.transport;
 
 import com.hong.py.common.dataStore.DataStore;
 import com.hong.py.commonUtils.Constants;
+import com.hong.py.commonUtils.NetUtils;
 import com.hong.py.commonUtils.URL;
 import com.hong.py.extension.ExtensionLoader;
 import com.hong.py.logger.Logger;
 import com.hong.py.logger.LoggerFactory;
+
 import com.hong.py.remoting.Channel;
 import com.hong.py.remoting.ChannelHandler;
 import com.hong.py.remoting.Client;
@@ -79,6 +81,7 @@ public abstract class AbstractClient extends AbstractEndPoint implements Client 
 
     /**
      * Get the connected channel.
+     * 获取 NettyClient-> NettyChannel->io.netty.Channel
      *
      * @return channel
      */
@@ -94,6 +97,10 @@ public abstract class AbstractClient extends AbstractEndPoint implements Client 
     @Override
     public void reset(URL url) {
 
+    }
+
+    public InetSocketAddress getConnectAddress() {
+        return new InetSocketAddress(NetUtils.filterLocalHost(getUrl().getHost()), getUrl().getPort());
     }
 
     @Override

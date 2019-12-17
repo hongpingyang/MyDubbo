@@ -44,11 +44,4 @@ public abstract class AbstractEndPoint extends AbstractPeer {
         return connectTimeout;
     }
 
-
-
-
-
-
-
-
 }

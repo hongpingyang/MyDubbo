@@ -21,7 +21,6 @@ import com.hong.py.remoting.Client;
 /**
  * ExchangeClient. (API/SPI, Prototype, ThreadSafe)
  *
- *
  */
 public interface ExchangeClient extends Client, ExchangeChannel {
 
