@@ -24,7 +24,7 @@ public class NettyClientInitializer extends ChannelInitializer<Channel> {
             throw new IllegalArgumentException("url == null");
         }
         if (client == null) {
-            throw new IllegalArgumentException("handler == null");
+            throw new IllegalArgumentException("client == null");
         }
         this.url = url;
         this.client = client;

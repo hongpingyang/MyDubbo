@@ -66,6 +66,8 @@ public abstract class AbstractPeer implements Endpoint,ChannelHandler {
 
     @Override
     public void startClose() {
+        if(isClosed())
+            return;
        closeing=true;
     }
 

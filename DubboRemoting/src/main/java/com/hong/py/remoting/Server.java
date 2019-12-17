@@ -25,7 +25,6 @@ import java.util.Collection;
  * Remoting Server. (API/SPI, Prototype, ThreadSafe)
  * <p>
  * <a href="http://en.wikipedia.org/wiki/Client%E2%80%93server_model">Client/Server</a>
- *
  * @see com.hong.py.remoting.Transporter#bind(com.hong.py.commonUtils.URL, ChannelHandler)
  */
 public interface Server extends Endpoint, Resetable {
@@ -51,8 +50,5 @@ public interface Server extends Endpoint, Resetable {
      * @return channel
      */
     Channel getChannel(InetSocketAddress remoteAddress);
-
-    //@Deprecated
-    //void reset(com.alibaba.dubbo.common.Parameters parameters);
 
 }

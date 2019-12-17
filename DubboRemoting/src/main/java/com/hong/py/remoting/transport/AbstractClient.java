@@ -19,7 +19,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 文件描述
+ *
  *
  **/
 public abstract class AbstractClient extends AbstractEndPoint implements Client {
@@ -158,6 +158,7 @@ public abstract class AbstractClient extends AbstractEndPoint implements Client 
      */
     @Override
     public void send(Object message, boolean sent) throws RemotingException {
+
         if (!isConnected()) {
             connect();
         }

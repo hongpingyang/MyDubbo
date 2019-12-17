@@ -1,5 +1,6 @@
 package com.hong.py.remoting.transpoter.netty;
 
+import com.hong.py.commonUtils.Constants;
 import com.hong.py.commonUtils.URL;
 import com.hong.py.logger.Logger;
 import com.hong.py.logger.LoggerFactory;
@@ -98,15 +99,36 @@ public class NettyChannel extends AbstractChannel {
 
     @Override
     public void send(Object message, boolean sent) throws RemotingException {
-        ChannelFuture future = channel.writeAndFlush(message);
 
+        boolean success = true;
+        int timeout=0;
+        ChannelFuture future = channel.writeAndFlush(message);
+        try {
+             if (sent) {
+                timeout = getUrl().getPositiveParameter(Constants.TIMEOUT_KEY, Constants.DEFAULT_TIMEOUT);
+                success = future.await(timeout);
+             }
+             Throwable cause = future.cause();
+             if (cause != null) {
+                throw cause;
+             }
+        } catch (Throwable e) {
+            throw new RemotingException(this, "Failed to send message " + message + " to " + getRemoteAddress() + ", cause: " + e.getMessage(), e);
+        }
+        if (!success) {
+            throw new RemotingException(this, "Failed to send message " + message + " to " + getRemoteAddress()
+                    + "in timeout(" + timeout + "ms) limit");
+        }
     }
 
     @Override
     public void close() {
         super.close();
+
         removeChannelIfDisconnected(channel);
+
         attributes.clear();
+
         channel.close();
     }
 }

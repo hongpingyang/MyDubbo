@@ -27,7 +27,7 @@ import java.util.Collection;
 public interface ExchangeServer extends Server {
 
     /**
-     * get channels.
+     * get channels. 获取所有的
      *
      * @return channels
      */
