@@ -22,6 +22,7 @@ import com.hong.py.remoting.telnet.TelnetHandler;
 
 /**
  * ExchangeHandler. (API, Prototype, ThreadSafe)
+ * 回复处理
  */
 public interface ExchangeHandler extends ChannelHandler, TelnetHandler {
 
