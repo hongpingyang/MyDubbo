@@ -3,7 +3,11 @@ package com.hong.py.config;
 
 import com.hong.py.commonUtils.*;
 import com.hong.py.config.annotation.Parameter;
+import com.hong.py.extension.ExtensionLoader;
+import com.hong.py.rpc.Exporter;
+import com.hong.py.rpc.Invoker;
 import com.hong.py.rpc.Protocol;
+import com.hong.py.rpc.ProxyFactory;
 
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -11,6 +15,11 @@ import java.net.UnknownHostException;
 import java.util.*;
 
 public class ServiceConfig<T> extends AbstractServiceConfig {
+
+
+    private static final Protocol protocol = ExtensionLoader.getExtensionLoader(Protocol.class).getAdaptiveExtension();
+
+    private static final ProxyFactory proxyFactory = ExtensionLoader.getExtensionLoader(ProxyFactory.class).getAdaptiveExtension();
 
     // interface type
     private String interfaceName;
@@ -23,11 +32,13 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
 
     private volatile boolean exported;
     private volatile boolean unexported;
+    private final List<URL> urls = new ArrayList<>();
+    private final List<Exporter<?>> exporters = new ArrayList<Exporter<?>>();
 
 
     public ServiceConfig() {
-    }
 
+    }
 
     public void setInterface(String interfaceName) {
         this.interfaceName = interfaceName;
@@ -113,9 +124,9 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
     }
 
 
-    private void doExportUrlsFor1Protocol(ProtocolConfig protocol,List<URL> registryURLs) {
+    private void doExportUrlsFor1Protocol(ProtocolConfig config,List<URL> registryURLs) {
 
-        String protocolName = protocol.getName();
+        String protocolName = config.getName();
         if (protocolName == null || protocolName.length() == 0) {
             protocolName = Constants.DEFAULT_PROTOCOL;
         }
@@ -128,9 +139,8 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         }
 
         appendParameters(map,application);
-        appendParameters(map,protocol);
+        appendParameters(map,config);
         appendParameters(map, this);
-
 
         String[] methods = Wrapper.getWrapper(interfaceClass).getMethodNames();
 
@@ -143,12 +153,36 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
 
 
         //使用外部容器发布服务，例如tomcat，项目路径
-        String contextPath = protocol.getContextpath();
+        String contextPath = config.getContextpath();
 
-        String configHosts = this.findConfigHosts(protocol, registryURLs, map);
-        Integer configPort = this.findConfigPort(protocol, map);
+        String host = this.findConfigHosts(config, registryURLs, map);
+        Integer port = this.findConfigPort(config, map);
+        URL url = new URL(protocolName, host, port, (contextPath == null || contextPath.length() == 0 ? "" : contextPath + "/") + path, map);
 
+        if (logger.isInfoEnabled()) {
+            logger.info("Export dubbo service " + interfaceClass.getName() + " to url " + url);
+        }
+        if (registryURLs != null && !registryURLs.isEmpty()) {
+            for (URL registeryurl : registryURLs) {
+                if (logger.isInfoEnabled()) {
+                    logger.info("Register dubbo service " + interfaceClass.getName() + " url " + url + " to registry " + registryURL);
+                }
 
+                String proxy = url.getParameter(Constants.PROXY_KEY);
+                if (StringUtils.isNotEmpty(proxy)) {
+                    registeryurl.addParameter(Constants.PROXY_KEY, proxy);
+                }
+
+                //编码
+                URL decodeurl = registeryurl.addParameterAndEncoded(Constants.EXPORT_KEY, url.toFullString());
+
+                Invoker invoker = proxyFactory.getInvoker(ref, (Class) interfaceClass, decodeurl);
+
+                Exporter export = protocol.export(invoker);
+                exporters.add(export);
+            }
+        }
+        this.urls.add(url);
     }
 
     //获取ip 先从系统获取后再向配置里查找
