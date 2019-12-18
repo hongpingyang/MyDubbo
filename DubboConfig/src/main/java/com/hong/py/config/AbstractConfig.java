@@ -21,7 +21,7 @@ import com.hong.py.commonUtils.*;
 import com.hong.py.extension.ExtensionLoader;
 import com.hong.py.logger.Logger;
 import com.hong.py.logger.LoggerFactory;
-import com.hong.py.support.Parameter;
+import com.hong.py.config.annotation.Parameter;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hong.py.support;
+package com.hong.py.config.annotation;
 
 import java.lang.annotation.*;
 

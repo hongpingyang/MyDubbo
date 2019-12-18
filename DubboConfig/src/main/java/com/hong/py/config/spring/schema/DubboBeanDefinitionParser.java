@@ -346,6 +346,7 @@ public class DubboBeanDefinitionParser implements BeanDefinitionParser {
      * @param beanDefinition
      */
     private static void parseProperties(NodeList nodeList, RootBeanDefinition beanDefinition) {
+
         if (nodeList != null && nodeList.getLength() > 0) {
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);

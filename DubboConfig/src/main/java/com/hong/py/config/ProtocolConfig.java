@@ -10,7 +10,7 @@ import com.hong.py.remoting.telnet.TelnetHandler;
 import com.hong.py.rpc.Protocol;
 import com.hong.py.serialization.Serialization;
 import com.hong.py.status.StatusChecker;
-import com.hong.py.support.Parameter;
+import com.hong.py.config.annotation.Parameter;
 import com.hong.py.threadpool.ThreadPool;
 
 import java.util.Map;

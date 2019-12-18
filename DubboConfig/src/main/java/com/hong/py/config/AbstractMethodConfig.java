@@ -19,7 +19,7 @@ package com.hong.py.config;
 
 import com.hong.py.cluster.LoadBalance;
 import com.hong.py.commonUtils.Constants;
-import com.hong.py.support.Parameter;
+import com.hong.py.config.annotation.Parameter;
 
 import java.util.Map;
 

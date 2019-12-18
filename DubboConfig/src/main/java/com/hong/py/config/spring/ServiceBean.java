@@ -17,9 +17,17 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
         ApplicationEventPublisherAware {
 
 
+    private ApplicationContext applicationContext;
+    private String beanName;
+
+    public ServiceBean() {
+
+    }
+
+
     @Override
     public void setBeanName(String s) {
-
+        this.beanName=s;
     }
 
     @Override
@@ -34,6 +42,7 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+       this.applicationContext=applicationContext;
 
     }
 
@@ -42,8 +51,13 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
 
     }
 
+
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-
+        //暴露服务
+        export();
     }
+
+
+
 }

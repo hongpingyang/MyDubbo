@@ -17,7 +17,7 @@
 package com.hong.py.config;
 
 import com.hong.py.config.annotation.Argument;
-import com.hong.py.support.Parameter;
+import com.hong.py.config.annotation.Parameter;
 
 import java.io.Serializable;
 

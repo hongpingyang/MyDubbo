@@ -25,7 +25,7 @@ import com.hong.py.registry.RegistryService;
 import com.hong.py.rpc.Filter;
 import com.hong.py.rpc.InvokerListener;
 import com.hong.py.rpc.ProxyFactory;
-import com.hong.py.support.Parameter;
+import com.hong.py.config.annotation.Parameter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
