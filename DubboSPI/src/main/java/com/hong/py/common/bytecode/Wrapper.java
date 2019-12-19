@@ -8,10 +8,7 @@ import javassist.LoaderClassPath;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -41,6 +38,7 @@ public abstract class Wrapper {
         StringBuilder mt =new StringBuilder(" public Object invokeMethod(Object instance,String mn,Class[] types,Object[] args) throws "+ InvocationTargetException.class.getName()+"  { ");
         mt.append(name).append(" w; try{ w=((").append(name).append(")$1;}catch(Throwable e){ throw new IllegalArgumentException(e); }");
 
+        List<String> mns = new ArrayList<>();
         Method[] methods = cl.getMethods();
         boolean hasMethod = hasMethods(methods);
         if (hasMethod) {
@@ -64,7 +62,7 @@ public abstract class Wrapper {
                 mt.append(" return ($W)w."+methodName+"("+getArgsStr(parameterTypes,"$4")+");");
             }
             mt.append(" }");
-
+            mns.add(methodName);
         }
         if (hasMethod) {
             mt.append("}catch(Throwable e){ throw new InvocationTargetException(e); }");
@@ -79,10 +77,14 @@ public abstract class Wrapper {
         cg.setSuperClass(Wrapper.class);
         cg.addDefaultConstructor();
 
+        cg.addField("public static String[] mns;");//所有的方法名
+
+        cg.addMethod("public String[] getMethodNames(){ return mns; }");
+
         cg.addMethod(mt.toString());
         try {
             Class<?> wc = cg.toClass();
-
+            wc.getField("mns").set(null,mns.toArray(new String[0]));
             //把生成的class文件写入文件 查看
             cg.toFile();
 
@@ -143,5 +145,8 @@ public abstract class Wrapper {
         return "("+ReflectUtils.getName(cl)+")"+name;
     }
 
+    public abstract String[] getMethodNames();
+
     public abstract Object invokeMethod(Object instance,String methodName,Class<?>[] types,Object[] args);
+
 }
