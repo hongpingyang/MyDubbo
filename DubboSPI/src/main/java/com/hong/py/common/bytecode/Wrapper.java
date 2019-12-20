@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public abstract class Wrapper {
 
     private static AtomicLong CLASS_WRAPPER_ID = new AtomicLong(0);
-    private static Map<Class<?>, Wrapper> wrapperMap = new HashMap<>();
+    private static Map<Class<?>, Wrapper> wrapperMap = new HashMap<Class<?>, Wrapper>();
 
     //
     public static Wrapper getWrapper(Class<?> cl) {

@@ -166,7 +166,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         if (registryURLs != null && !registryURLs.isEmpty()) {
             for (URL registeryurl : registryURLs) {
                 if (logger.isInfoEnabled()) {
-                    logger.info("Register dubbo service " + interfaceClass.getName() + " url " + url + " to registry " + registryURL);
+                    logger.info("Register dubbo service " + interfaceClass.getName() + " url " + url + " to registry " + registeryurl);
                 }
 
                 String proxy = url.getParameter(Constants.PROXY_KEY);

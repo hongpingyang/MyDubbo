@@ -30,6 +30,7 @@ public class ProtocolUtils {
                 url.getParameter(Constants.GROUP_KEY));
     }
 
+    //g/MethodName:V:port
     public static String serviceKey(int port, String serviceName, String serviceVersion, String serviceGroup) {
         StringBuilder buf = new StringBuilder();
         if (serviceGroup != null && serviceGroup.length() > 0) {
