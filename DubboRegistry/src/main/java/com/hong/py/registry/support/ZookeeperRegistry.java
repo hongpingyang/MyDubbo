@@ -3,17 +3,16 @@ package com.hong.py.registry.support;
 import com.hong.py.commonUtils.ConcurrentHashSet;
 import com.hong.py.commonUtils.Constants;
 import com.hong.py.commonUtils.URL;
+import com.hong.py.commonUtils.UrlUtils;
 import com.hong.py.logger.Logger;
 import com.hong.py.logger.LoggerFactory;
+import com.hong.py.registry.ChildrenListener;
 import com.hong.py.registry.NotifyListener;
 import com.hong.py.registry.Registry;
 import com.hong.py.registry.zookeeper.ZookeeperClient;
 import com.hong.py.rpc.RpcException;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -32,6 +31,11 @@ public class ZookeeperRegistry  implements Registry {
     private final ConcurrentMap<URL, Set<NotifyListener>> failedSubscribed = new ConcurrentHashMap<URL, Set<NotifyListener>>();
     private final ConcurrentMap<URL, Set<NotifyListener>> failedUnsubscribed = new ConcurrentHashMap<URL, Set<NotifyListener>>();
 
+    private final ConcurrentMap<URL, ConcurrentMap<NotifyListener, ChildrenListener>> zkListeners = new ConcurrentHashMap<URL, ConcurrentMap<NotifyListener, ChildrenListener>>();
+    private final Set<String> anyServices = new ConcurrentHashSet<String>();
+
+    private final ConcurrentMap<URL, Map<NotifyListener, List<URL>>> failedNotified = new ConcurrentHashMap<URL, Map<NotifyListener, List<URL>>>();
+    private final ConcurrentMap<URL, Map<String, List<URL>>> notified = new ConcurrentHashMap<URL, Map<String, List<URL>>>();
 
     private final String root;
 
@@ -131,6 +135,85 @@ public class ZookeeperRegistry  implements Registry {
 
     private void doSubsribe(URL url, NotifyListener listener) {
 
+        try {
+
+
+            if (Constants.ANY_VALUE.equals(url.getServiceInterface())) {
+                ConcurrentMap<NotifyListener, ChildrenListener> listeners = zkListeners.get(url);
+                if (listeners == null) {
+                    listeners = new ConcurrentHashMap<NotifyListener, ChildrenListener>();
+                    zkListeners.putIfAbsent(url, listeners);
+                }
+
+                ChildrenListener zklistener = listeners.get(listener);
+                if (zklistener == null) {
+                    listeners.putIfAbsent(listener, new ChildrenListener() {
+                        //如果子节点有变化则会直接通知，遍历所有子节点
+                        @Override
+                        public void childChanged(String path, List<String> children) {
+                            for (String child : children) {
+                                child = URL.decode(child);
+                                if (!anyServices.contains(child)) { //如果字节还没有被订阅
+                                    anyServices.add(child);
+                                    //订阅子节点
+                                    subscribe(url.setPath(child).addParameters(Constants.INTERFACE_KEY, child,
+                                            Constants.CHECK_KEY, String.valueOf(false)), listener);
+                                }
+                            }
+                        }
+                    });
+                    zklistener = listeners.get(listener);
+                }
+
+                client.create(root, false);
+
+                List<String> services = client.addChildListener(root, zklistener);
+                if (services != null && !services.isEmpty()) {
+                    for (String service : services) {
+                        service = URL.decode(service);
+                        anyServices.add(service);
+                        subscribe(url.setPath(service).addParameters(Constants.INTERFACE_KEY, service,
+                                Constants.CHECK_KEY, String.valueOf(false)), listener);
+                    }
+                }
+            } else {
+
+                List<URL> urls = new ArrayList<URL>();
+
+                for (String path : toCategoriesPath(url)) {
+
+                    ConcurrentMap<NotifyListener, ChildrenListener> listeners = zkListeners.get(url);
+                    if (listeners == null) {
+                        zkListeners.putIfAbsent(url, new ConcurrentHashMap<NotifyListener, ChildrenListener>());
+                        listeners = zkListeners.get(url);
+                    }
+                    ChildrenListener zkListener = listeners.get(listener);
+                    if (zkListener == null) {
+                        listeners.putIfAbsent(listener, new ChildrenListener() {
+                            @Override
+                            public void childChanged(String parentPath, List<String> currentChilds) {
+                                ZookeeperRegistry.this.notify(url, listener, toUrlsWithEmpty(url, parentPath, currentChilds));
+                            }
+                        });
+                        zkListener = listeners.get(listener);
+                    }
+                    client.create(path, false);
+
+                    List<String> children = client.addChildListener(path, zkListener);
+
+                    if (children != null) {
+                        urls.addAll(toUrlsWithEmpty(url, path, children));
+                    }
+                }
+
+                //回调NotifyListener,更新本地缓存信息
+                notify(url, listener, urls);
+            }
+        } catch (Throwable e) {
+            throw new RpcException("Failed to subscribe " + url + " to zookeeper " + getUrl() + ", cause: " + e.getMessage(), e);
+        }
+
+
     }
 
     private void addFailedSubscribe(URL url, NotifyListener listener) {
@@ -160,8 +243,114 @@ public class ZookeeperRegistry  implements Registry {
         }
     }
 
+
+    private String[] toCategoriesPath(URL url) {
+        String[] categories;
+        if (Constants.ANY_VALUE.equals(url.getParameter(Constants.CATEGORY_KEY))) {
+            categories = new String[]{Constants.PROVIDERS_CATEGORY, Constants.CONSUMERS_CATEGORY,
+                    Constants.ROUTERS_CATEGORY, Constants.CONFIGURATORS_CATEGORY};
+        } else {
+            categories = url.getParameter(Constants.CATEGORY_KEY, new String[]{Constants.DEFAULT_CATEGORY});
+        }
+        String[] paths = new String[categories.length];
+        for (int i = 0; i < categories.length; i++) {
+            paths[i] = toServicePath(url) + Constants.PATH_SEPARATOR + categories[i];
+        }
+        return paths;
+    }
+
+    private List<URL> toUrlsWithEmpty(URL consumer, String path, List<String> providers) {
+        List<URL> urls = toUrlsWithoutEmpty(consumer, providers);
+        if (urls == null || urls.isEmpty()) {
+            int i = path.lastIndexOf('/');
+            String category = i < 0 ? path : path.substring(i + 1);
+            URL empty = consumer.setProtocol(Constants.EMPTY_PROTOCOL).addParameter(Constants.CATEGORY_KEY, category);
+            urls.add(empty);
+        }
+        return urls;
+    }
+
+    private List<URL> toUrlsWithoutEmpty(URL consumer, List<String> providers) {
+        List<URL> urls = new ArrayList<URL>();
+        if (providers != null && !providers.isEmpty()) {
+            for (String provider : providers) {
+                provider = URL.decode(provider);
+                if (provider.contains("://")) {
+                    URL url = URL.valueOf(provider);
+                    if (UrlUtils.isMatch(consumer, url)) {
+                        urls.add(url);
+                    }
+                }
+            }
+        }
+        return urls;
+    }
+
     @Override
     public void unsubscribe(URL url, NotifyListener listener) {
+
+    }
+
+    protected void notify(URL url, NotifyListener listener, List<URL> urls) {
+        if (url == null) {
+            throw new IllegalArgumentException("url==null");
+        }
+        if (listener == null) {
+            throw new IllegalArgumentException("listener==null");
+        }
+        try {
+
+            doNotify(url, listener, urls);
+        } catch (Exception e) {
+            Map<NotifyListener, List<URL>> notifyListenerListMap = failedNotified.get(url);
+            if (notifyListenerListMap == null) {
+                failedNotified.putIfAbsent(url, new ConcurrentHashMap<>());
+                notifyListenerListMap = failedNotified.get(url);
+            }
+            notifyListenerListMap.put(listener, urls);
+            logger.error("Failed to notify for subscribe " + url + ", waiting for retry, cause: " + e.getMessage(), e);
+        }
+
+    }
+
+    protected void doNotify(URL url, NotifyListener listener, List<URL> urls) {
+
+        Map<String, List<URL>> result = new HashMap<String, List<URL>>();
+
+        for (URL u : urls) {
+            if (UrlUtils.isMatch(url, u)) {
+                //类别
+                String category = u.getParameter(Constants.CATEGORY_KEY, Constants.DEFAULT_CATEGORY);
+                List<URL> categoryList = result.get(category);
+                if (categoryList == null) {
+                    categoryList = new ArrayList<URL>();
+                    result.put(category, categoryList);
+                }
+                categoryList.add(u);
+            }
+        }
+        if (result.size() == 0) {
+            return;
+        }
+        //记录已经通知的
+        Map<String, List<URL>> categoryNotified = notified.get(url);
+        if (categoryNotified == null) {
+            notified.putIfAbsent(url, new ConcurrentHashMap<String, List<URL>>());
+            categoryNotified = notified.get(url);
+        }
+
+        for (Map.Entry<String, List<URL>> entry : result.entrySet()) {
+            String category = entry.getKey();
+            List<URL> categoryList = entry.getValue();
+            categoryNotified.put(category, categoryList);
+            saveProperties(url);
+            //通知
+            listener.notify(categoryList);
+        }
+    }
+
+
+    private void saveProperties(URL url) {
 
     }
 

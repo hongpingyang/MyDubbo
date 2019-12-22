@@ -1,6 +1,7 @@
 package com.hong.py.registry.zookeeper;
 
 import com.hong.py.commonUtils.URL;
+import com.hong.py.registry.ChildrenListener;
 
 import java.util.List;
 
@@ -18,6 +19,16 @@ public class CuratorZookeeperClient implements ZookeeperClient {
 
     @Override
     public void delete(String path) {
+
+    }
+
+    @Override
+    public List<String> addChildListener(String path, ChildrenListener listener) {
+        return null;
+    }
+
+    @Override
+    public void removeChildListener(String path, ChildrenListener listener) {
 
     }
 
