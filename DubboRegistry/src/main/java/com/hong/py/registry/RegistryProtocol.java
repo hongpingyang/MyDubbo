@@ -37,6 +37,8 @@ public class RegistryProtocol implements Protocol {
         this.registryFactory = registryFactory;
     }
 
+    private Registry registry;
+
     @Override
     public int getDefaultPort() {
         return 9090;
@@ -124,4 +126,5 @@ public class RegistryProtocol implements Protocol {
     public void destroy() {
 
     }
+
 }

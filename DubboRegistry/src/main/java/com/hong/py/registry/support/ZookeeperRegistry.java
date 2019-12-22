@@ -137,7 +137,6 @@ public class ZookeeperRegistry  implements Registry {
 
         try {
 
-
             if (Constants.ANY_VALUE.equals(url.getServiceInterface())) {
                 ConcurrentMap<NotifyListener, ChildrenListener> listeners = zkListeners.get(url);
                 if (listeners == null) {
