@@ -68,7 +68,7 @@ public class RegistryProtocol implements Protocol {
         //发布
         registry.subscribe(overrideSubscribeUrl,overrideSubscribeListener);
 
-        return null;
+        return new DestoryableExporter(exporter,invoker,overrideSubscribeUrl,registryUrl,registry,notifyListenerMap);
     }
 
     //会到dubboProtocol发布
