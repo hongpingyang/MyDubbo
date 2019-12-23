@@ -7,6 +7,7 @@ import com.hong.py.rpc.Exporter;
 import com.hong.py.rpc.Invoker;
 import com.hong.py.rpc.Protocol;
 import com.hong.py.rpc.RpcException;
+import com.hong.py.rpc.proxy.InvokerWrapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -87,7 +88,8 @@ public class RegistryProtocol implements Protocol {
         String key = getCacheKey(invoker);
         Exporter<T> exporter = (Exporter<T>)exporterMap.get(key);
         if (exporter == null) {
-            exporter = protocol.export(invoker);
+            InvokerWrapper<T> invokerWrapper = new InvokerWrapper<>(invoker, getProviderUrl(invoker));
+            exporter = protocol.export(invokerWrapper);
             exporterMap.put(key, exporter);
         }
         return exporter;
