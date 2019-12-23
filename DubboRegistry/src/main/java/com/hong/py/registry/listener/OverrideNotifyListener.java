@@ -5,6 +5,8 @@ import com.hong.py.commonUtils.UrlUtils;
 import com.hong.py.registry.NotifyListener;
 import com.hong.py.registry.RegistryDirectory;
 import com.hong.py.rpc.Invoker;
+import org.apache.log4j.spi.Configurator;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,7 @@ public class OverrideNotifyListener implements NotifyListener {
     }
 
 
+    //重新暴露服务
     @Override
     public void notify(List<URL> urls) {
 
@@ -28,7 +31,9 @@ public class OverrideNotifyListener implements NotifyListener {
             return;
         }
 
-        List<Configurator> configurators = RegistryDirectory.toConfigurators(matchedUrls);
+        //List<Configurator> configurators = RegistryDirectory.toConfigurators(matchedUrls);
+
+
 
 
     }

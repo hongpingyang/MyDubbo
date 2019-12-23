@@ -44,6 +44,15 @@ public class RegistryProtocol implements Protocol {
         return 9090;
     }
 
+
+    //远程服务的暴露总体步骤：
+    //
+    //将ref封装为invoker
+    //将invoker转换为exporter
+    //启动netty
+    //注册服务到zookeeper
+    //订阅与通知
+    //返回新的exporter实例
     @Override
     public <T> Exporter<T> export(Invoker<T> invoker) throws RpcException {
 
@@ -59,6 +68,8 @@ public class RegistryProtocol implements Protocol {
         //注册
         registry.register(reigisteredProviderURL);
 
+        //讲协议改为provider
+        //添加参数：category=configurators和check=false；
         final URL overrideSubscribeUrl = getSubscribedOverrideUrl(reigisteredProviderURL);
 
         final OverrideNotifyListener overrideSubscribeListener = new OverrideNotifyListener(overrideSubscribeUrl, invoker);

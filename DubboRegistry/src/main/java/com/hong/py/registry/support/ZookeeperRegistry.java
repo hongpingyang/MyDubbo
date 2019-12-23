@@ -91,6 +91,7 @@ public class ZookeeperRegistry  implements Registry {
         return root;
     }
 
+    //类似： /dubbo/com.hong.py.demo.DemoService
     private String toServicePath(URL url) {
         String name = url.getServiceInterface();
         if (Constants.ANY_VALUE.equals(name)) {
@@ -189,6 +190,7 @@ public class ZookeeperRegistry  implements Registry {
                     ChildrenListener zkListener = listeners.get(listener);
                     if (zkListener == null) {
                         listeners.putIfAbsent(listener, new ChildrenListener() {
+                            //监听子节点的变化
                             @Override
                             public void childChanged(String parentPath, List<String> currentChilds) {
                                 ZookeeperRegistry.this.notify(url, listener, toUrlsWithEmpty(url, parentPath, currentChilds));
@@ -196,8 +198,10 @@ public class ZookeeperRegistry  implements Registry {
                         });
                         zkListener = listeners.get(listener);
                     }
+                    // /dubbo/com.hong.py.demo.DemoService/providers
                     client.create(path, false);
 
+                    //会构造curatorClient和curatorWatcher监听path下子节点的变化
                     List<String> children = client.addChildListener(path, zkListener);
 
                     if (children != null) {
