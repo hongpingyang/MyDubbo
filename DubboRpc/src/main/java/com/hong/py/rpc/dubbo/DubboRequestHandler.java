@@ -18,6 +18,11 @@ import com.hong.py.rpc.RpcInvocation;
 public class DubboRequestHandler extends ExchangeHandlerAdapter {
 
     private Logger logger = LoggerFactory.getLogger(DubboRequestHandler.class);
+    private DubboProtocol dubboProtocol;
+
+    public DubboRequestHandler(DubboProtocol protocol) {
+        dubboProtocol=protocol;
+    }
 
     @Override
     public Object reply(ExchangeChannel channel, Object request) throws RemotingException {
@@ -30,10 +35,8 @@ public class DubboRequestHandler extends ExchangeHandlerAdapter {
         throw new RemotingException(channel, "Unsupported request");
     }
 
-    private Invoker<?> getInvoker(Channel channel,Invocation invocation) {
-
-
-        return null;
+    private Invoker<?> getInvoker(Channel channel,Invocation invocation) throws RemotingException {
+        return dubboProtocol.getInvoker(channel,invocation);
     }
 
     @Override
