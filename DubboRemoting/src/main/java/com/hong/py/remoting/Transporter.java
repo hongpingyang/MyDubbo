@@ -29,7 +29,7 @@ import com.hong.py.commonUtils.URL;
  *
  * @see com.hong.py.remoting.Transporters
  */
-@SPI("netty")
+@SPI("netty4")
 public interface Transporter {
 
     /**

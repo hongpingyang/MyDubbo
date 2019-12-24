@@ -27,12 +27,11 @@ import com.hong.py.remoting.transport.ChannelHandlerDispatcher;
 public class Transporters {
 
     static {
-        // check duplicate jar package
-        //Version.checkDuplicate(Transporters.class);
-        //Version.checkDuplicate(RemotingException.class);
+
     }
 
     private Transporters() {
+
     }
 
     public static Server bind(String url, ChannelHandler... handler) throws RemotingException {
