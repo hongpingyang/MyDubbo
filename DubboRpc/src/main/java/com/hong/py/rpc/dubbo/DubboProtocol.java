@@ -22,6 +22,7 @@ public class DubboProtocol implements Protocol {
     private static int DUBBO_DEFAULT_PORT=20880;
     private Exporter<?> exporter;
     private Map<String, ExchangeServer> exchangeServerMap = new ConcurrentHashMap<>();
+    private DubboRequestHandler dubboRequestHandler=new DubboRequestHandler();
 
     @Override
     public int getDefaultPort() {
@@ -53,7 +54,7 @@ public class DubboProtocol implements Protocol {
 
         ExchangeServer server;
         try {
-            server = ExchangeManage.getExchangeServer(url, requestHandler);
+            server = ExchangeManage.getExchangeServer(url, dubboRequestHandler);
         } catch (RemotingException e) {
             throw new RpcException("Fail to start server(url: " + url + ") " + e.getMessage(), e);
         }
