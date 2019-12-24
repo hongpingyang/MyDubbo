@@ -24,7 +24,7 @@
         <spring.version>4.3.9.RELEASE</spring.version>
         <netty4_version>4.1.25.Final</netty4_version>
         <curator_version>2.12.0</curator_version>
-        <zk_version>3.4.9</zk_version>
+        <zk_version>3.4.14</zk_version>
     </properties>
 
     <dependencyManagement>
