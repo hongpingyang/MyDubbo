@@ -41,6 +41,20 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
 
     }
 
+    @Parameter(excluded = true)
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        checkPathName(Constants.PATH_KEY, path);
+        this.path = path;
+    }
+
+    public String getInterface() {
+        return interfaceName;
+    }
+
     public void setInterface(String interfaceName) {
         this.interfaceName = interfaceName;
         if (id == null || id.length() == 0) {
