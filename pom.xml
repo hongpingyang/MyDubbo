@@ -15,6 +15,8 @@
         <module>DubboRpc</module>
         <module>DubboCluster</module>
         <module>DubboRegistry</module>
+        <module>DubboDemo</module>
+        <module>Dubbbo-Bom</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

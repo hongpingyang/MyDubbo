@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="DubboCluster" />
         <module name="DubboConfig" />
+        <module name="Dubbodemoapi" />
+        <module name="Dubbodemoconsumer" />
         <module name="DubboRegistry" />
         <module name="DubboRemoting" />
         <module name="DubboRpc" />
