@@ -742,7 +742,7 @@ public final class ReflectUtils {
      * Find method from method signature
      *
      * @param clazz      Target class to find method
-     * @param methodName Method signature, e.g.: method1(int, String). It is allowed to provide method name only, e.g.: method2
+     * @param methodName Method signature, e.g.: method1(int, String). It is allowed to provider method name only, e.g.: method2
      * @return target method
      * @throws NoSuchMethodException
      * @throws ClassNotFoundException

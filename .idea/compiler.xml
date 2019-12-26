@@ -6,10 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Dubbo-demo-api" />
+        <module name="Dubbo-demo-consumer" />
         <module name="DubboCluster" />
         <module name="DubboConfig" />
         <module name="Dubbodemoapi" />
         <module name="Dubbodemoconsumer" />
+        <module name="Dubbodemoprovider" />
         <module name="DubboRegistry" />
         <module name="DubboRemoting" />
         <module name="DubboRpc" />

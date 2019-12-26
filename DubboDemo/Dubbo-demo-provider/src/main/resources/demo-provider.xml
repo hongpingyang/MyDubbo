@@ -1,0 +1,19 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:hong="http://www.hong.py/schema/hong"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.hong.py/schema/hong http://www.hong.py/schema/hong/hong.xsd">
+
+    <hong:application name="service-provide" ></hong:application>
+
+    <hong:protocol name="dubbo" port="20880"></hong:protocol>
+
+    <hong:registry protocol="zookeeper" address="10.20.19.203:2181"></hong:registry>
+
+    <bean id="demoHelloService" class="com.hong.py.provider.DemoHelloServiceImpl"></bean>
+
+    <hong:service interface="com.hong.py.demo.DemoHelloService" ref="demoHelloService">
+        <hong:method name="sayHello"></hong:method>
+    </hong:service>
+
+</beans>

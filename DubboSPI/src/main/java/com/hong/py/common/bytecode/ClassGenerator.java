@@ -1,7 +1,6 @@
 package com.hong.py.common.bytecode;
 
 import com.hong.py.commonUtils.ClassHelper;
-import com.sun.xml.internal.bind.v2.model.core.ID;
 import javassist.*;
 
 import java.io.File;
@@ -10,7 +9,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.ProtectionDomain;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * 类生成器
