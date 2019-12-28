@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Dubbo-demo-api" />
         <module name="Dubbo-demo-consumer" />
+        <module name="Dubbo-demo-provider" />
         <module name="DubboCluster" />
         <module name="DubboConfig" />
         <module name="Dubbodemoapi" />

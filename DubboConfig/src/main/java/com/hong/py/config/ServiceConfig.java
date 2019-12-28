@@ -117,7 +117,6 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         checkInterfaceAndMethods(interfaceClass, methods);
         checkRef();
 
-
         checkApplication();
         checkRegistry();
         checkProtocol();

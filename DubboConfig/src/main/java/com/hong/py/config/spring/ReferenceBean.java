@@ -1,6 +1,7 @@
 package com.hong.py.config.spring;
 
 import com.hong.py.config.ReferenceConfig;
+import com.hong.py.extension.SpringExtensionFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.FactoryBean;
@@ -15,24 +16,32 @@ import org.springframework.context.ApplicationContextAware;
 public class ReferenceBean<T>  extends ReferenceConfig<T> implements FactoryBean, ApplicationContextAware,
         InitializingBean, DisposableBean {
 
-    @Override
-    public void destroy() throws Exception {
+    private transient ApplicationContext applicationContext;
 
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+       this.applicationContext=applicationContext;
+        SpringExtensionFactory.addApplicationContext(applicationContext);
     }
 
+
+
+    //获取真正的实例
     @Override
     public Object getObject() throws Exception {
-        return null;
+        return get();
     }
 
+    //获取接口类型
     @Override
     public Class<?> getObjectType() {
-        return null;
+        return getInterfaceClass();
     }
 
     @Override
     public boolean isSingleton() {
-        return false;
+        return true;
     }
 
     @Override
@@ -41,7 +50,7 @@ public class ReferenceBean<T>  extends ReferenceConfig<T> implements FactoryBean
     }
 
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    public void destroy() throws Exception {
 
     }
 }

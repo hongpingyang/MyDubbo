@@ -4,6 +4,7 @@ import com.hong.py.config.ApplicationConfig;
 import com.hong.py.config.ProtocolConfig;
 import com.hong.py.config.RegistryConfig;
 import com.hong.py.config.ServiceConfig;
+import com.hong.py.extension.SpringExtensionFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.BeanNameAware;
@@ -107,7 +108,7 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
        this.applicationContext=applicationContext;
-
+        SpringExtensionFactory.addApplicationContext(applicationContext);
     }
 
     @Override
