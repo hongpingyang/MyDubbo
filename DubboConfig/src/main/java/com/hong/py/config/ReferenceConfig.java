@@ -23,7 +23,18 @@ public class ReferenceConfig<T> extends  AbstractReferenceConfig {
     private transient volatile boolean initialized;
     private List<MethodConfig> methods;
 
+
+    private String protocol;
+
     private List<URL> urls=new ArrayList<>();
+
+    public String getProtocol() {
+        return protocol;
+    }
+
+    public void setProtocol(String protocol) {
+        this.protocol = protocol;
+    }
 
     public String getInterface() {
         return interfaceName;

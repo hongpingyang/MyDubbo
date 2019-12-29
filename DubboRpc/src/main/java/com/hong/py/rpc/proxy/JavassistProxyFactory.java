@@ -16,4 +16,9 @@ public class JavassistProxyFactory extends AbstractProxyFactory {
         final Wrapper wrapper = Wrapper.getWrapper(type);
         return new ProxyInvoker<T>(wrapper,proxy, type, url);
     }
+
+    @Override
+    public <T> T createProxy(Invoker<T> invoker, Class<?>[] types) {
+        return null;
+    }
 }
