@@ -83,10 +83,10 @@ public abstract class Proxy {
         cg.setClassName(pcn);
         cg.addField("public static java.lang.reflect.Method[] methods;");
         cg.addField("private " + InvocationHandler.class.getName() + " handler;");
-        cg.addConstructor(Modifier.PUBLIC, new Class<?>[]{InvocationHandler.class}, new Class<?>[0], "handler=$1;");
         cg.addDefaultConstructor();
+        //cg.addConstructor(Modifier.PUBLIC, new Class<?>[]{InvocationHandler.class}, new Class<?>[0], "handler=$1;");
         cg.setSuperClass(Proxy.class);
-        cg.addMethod("public Object newInstance(" + InvocationHandler.class.getName() + " h){ return new this($1); }");
+        cg.addMethod("public Object newInstance(" + InvocationHandler.class.getName() + " h){ handler=$1; return this; }");
         Class<?> clazz = cg.toClass();
         cg.toFile();
         clazz.getField("methods").set(null, methods.toArray(new Method[0]));

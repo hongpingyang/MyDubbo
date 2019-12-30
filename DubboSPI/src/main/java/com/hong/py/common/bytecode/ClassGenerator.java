@@ -1,12 +1,14 @@
 package com.hong.py.common.bytecode;
 
 import com.hong.py.commonUtils.ClassHelper;
+import com.hong.py.commonUtils.ReflectUtils;
 import javassist.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Modifier;
 import java.security.ProtectionDomain;
 import java.util.*;
 
@@ -97,12 +99,56 @@ public class ClassGenerator {
         return this;
     }
 
+    public ClassGenerator addMethod(String name, int mod, Class<?> rt, Class<?>[] pts, Class<?>[] ets, String body) {
+        StringBuilder builder=new StringBuilder();
+        builder.append(modifiers(mod)).append(' ').append(ReflectUtils.getName(rt)).append(' ').append(name);
+        builder.append("( ");
+        for (int i = 0; i < pts.length; i++) {
+            if(i>0)
+                builder.append(",");
+            builder.append(ReflectUtils.getName(pts[i])).append(" arg").append(i);
+        }
+        builder.append(" )");
+        if (ets != null && ets.length > 0) {
+            builder.append(" throws ");
+            for (int i = 0; i < ets.length; i++) {
+                if(i>0)
+                    builder.append(",");
+                builder.append(ReflectUtils.getName(ets[i]));
+            }
+        }
+        builder.append("{ ").append(body).append(" }");
+        return addMethod(builder.toString());
+    }
+
     public ClassGenerator addConstructor(String code) {
         if (mConstructors == null) {
             mConstructors = new ArrayList<>();
         }
         this.mConstructors.add(code);
         return this;
+    }
+
+    public ClassGenerator addConstructor(int aPublic, Class<?>[] pts, Class<?>[] ets, String body) {
+        StringBuilder builder=new StringBuilder();
+        builder.append(modifiers(aPublic)).append(' ').append(mClassName);
+        builder.append("( ");
+        for (int i = 0; i < pts.length; i++) {
+            if(i>0)
+                builder.append(",");
+            builder.append(ReflectUtils.getName(pts[i])).append(" arg").append(i);
+        }
+        builder.append(" )");
+        if (ets != null && ets.length > 0) {
+            builder.append(" throws ");
+            for (int i = 0; i < ets.length; i++) {
+                if(i>0)
+                    builder.append(",");
+                builder.append(ReflectUtils.getName(ets[i]));
+            }
+        }
+        builder.append("{ ").append(body).append(" }");
+        return addConstructor(builder.toString());
     }
 
     public ClassGenerator addDefaultConstructor() {
@@ -208,6 +254,14 @@ public class ClassGenerator {
             }
         }
     }
+
+    private String modifiers(int mod) {
+        if (Modifier.isPublic(mod)) return "public";
+        if (Modifier.isProtected(mod)) return "protected";
+        if (Modifier.isPrivate(mod)) return "private";
+        return "";
+    }
+
     //用来标志是否已经被包装了
     public static interface Wappered {
 
