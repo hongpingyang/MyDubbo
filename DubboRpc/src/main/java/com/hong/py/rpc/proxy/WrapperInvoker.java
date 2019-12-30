@@ -10,17 +10,17 @@ import com.hong.py.rpc.RpcException;
 import java.util.InvalidPropertiesFormatException;
 
 /**
- * 真正的Invoker
+ * 包装真正的Invoker
  * @param <T>
  */
-public class ProxyInvoker<T> implements Invoker<T> {
+public class WrapperInvoker<T> implements Invoker<T> {
 
      private Wrapper wrapper;
      private T proxy;
      private Class<T> type;
      private URL url;
 
-    public ProxyInvoker(Wrapper wrapper,T proxy, Class<T> type, URL url) {
+    public WrapperInvoker(Wrapper wrapper, T proxy, Class<T> type, URL url) {
         if (wrapper == null) {
             throw new IllegalArgumentException("wrapper==null");
         }
