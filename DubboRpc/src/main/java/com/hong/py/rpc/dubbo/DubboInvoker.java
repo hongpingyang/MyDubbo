@@ -2,7 +2,9 @@ package com.hong.py.rpc.dubbo;
 
 import com.hong.py.commonUtils.Constants;
 import com.hong.py.commonUtils.URL;
+import com.hong.py.remoting.RemotingException;
 import com.hong.py.remoting.exchange.ExchangeClient;
+import com.hong.py.remoting.exchange.ResponseFuture;
 import com.hong.py.rpc.*;
 import com.hong.py.rpc.support.RpcUtils;
 
@@ -78,19 +80,26 @@ public class DubboInvoker<T> implements Invoker<T> {
             //是否有回调 默认是true
             boolean isOneway = RpcUtils.isOneway(getUrl(), invocation);
 
+            int timeout = getUrl().getMethodParameter(invocation.getMethodName(), Constants.TIMEOUT_KEY, Constants.DEFAULT_TIMEOUT);
+
             if (isOneway) { //没有回调
 
+                boolean isSent = getUrl().getMethodParameter(methodName, Constants.SENT_KEY, false);
+                currentClient.send(inv, isSent);
+                RpcContext.getContext().setFuture(null);
+                return new RpcResult();
 
-            } else if (isAsync) {//有回调
-
+            } else if (isAsync) {//有回调异步
+                ResponseFuture future = currentClient.request(inv, timeout);
+                RpcContext.getContext().setFuture();
+                return new RpcResult();
             }
             else { //有回调且不是异步
-
+                RpcContext.getContext().setFuture(null);
+                return (Result) currentClient.request(inv,timeout).get();
             }
-
-            return null;
-        } catch (Exception e) {
-           throw e;
+        } catch (RemotingException e) {
+            throw new RpcException(RpcException.TIMEOUT_EXCEPTION, "Invoke remote method timeout. method: " + invocation.getMethodName() + ", provider: " + getUrl() + ", cause: " + e.getMessage(), e);
         }
     }
 
