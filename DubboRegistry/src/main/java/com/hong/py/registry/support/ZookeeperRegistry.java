@@ -134,6 +134,8 @@ public class ZookeeperRegistry  implements Registry {
     }
 
 
+    //provider://192.168.158.78:20880/com.alibaba.dubbo.demo.DemoService?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService&category=configurators&check=false&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService&methods=sayHello&pid=15868&side=provider&timestamp=1577089692522
+    //consumer://192.168.158.78/com.alibaba.dubbo.demo.DemoService2?application=demo-consumer&category=providers,configurators,routers&check=false&dubbo=2.0.2&interface=com.alibaba.dubbo.demo.DemoService2&methods=sayHello&pid=20052&qos.port=33333&side=consumer&timestamp=1577761153089
     private void doSubsribe(URL url, NotifyListener listener) {
 
         try {
@@ -179,7 +181,7 @@ public class ZookeeperRegistry  implements Registry {
             } else {
 
                 List<URL> urls = new ArrayList<URL>();
-
+                //providers,configurators,routers 消费者会订阅这3种
                 for (String path : toCategoriesPath(url)) {
 
                     ConcurrentMap<NotifyListener, ChildrenListener> listeners = zkListeners.get(url);
