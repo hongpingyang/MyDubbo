@@ -3,6 +3,7 @@ package com.hong.py.rpc;
 import com.hong.py.commonUtils.Constants;
 
 import java.io.Serializable;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +32,6 @@ public class RpcInvocation implements Invocation, Serializable {
         }
     }
 
-
     public RpcInvocation(String methodName, Class<?>[] parameterTypes, Object[] arguments, Map<String, String> attachments, Invoker<?> invoker) {
         this.methodName = methodName;
         this.ParameterTypes = parameterTypes == null ? new Class<?>[0] : parameterTypes;
@@ -40,6 +40,9 @@ public class RpcInvocation implements Invocation, Serializable {
         this.Invoker = invoker;
     }
 
+    public RpcInvocation(Method method, Object[] arguments) {
+        this(method.getName(), method.getParameterTypes(), arguments, null, null);
+    }
 
     @Override
     public String getMethodName() {
