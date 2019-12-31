@@ -14,7 +14,7 @@ public class JavassistProxyFactory extends AbstractProxyFactory {
     @Override
     public <T> Invoker<T> getInvoker(T proxy, Class<T> type, URL url) throws RpcException {
         final Wrapper wrapper = Wrapper.getWrapper(type);
-        return new WrapperInvoker<T>(wrapper,proxy, type, url);
+        return new WrapperProxy<T>(wrapper,proxy, type, url);
     }
 
     @Override
