@@ -25,7 +25,13 @@ public class RpcContext {
     private Future<?> future;
 
     public static RpcContext getContext() {
-        return LOCAL.get();
+
+        RpcContext rpcContext = LOCAL.get();
+        if (rpcContext == null) {
+            rpcContext = new RpcContext();
+            LOCAL.set(rpcContext);
+        }
+        return rpcContext;
     }
 
     public void setFuture(Future<?> future) {

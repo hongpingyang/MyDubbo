@@ -20,6 +20,6 @@ public class HeaderExchange implements Exchanger {
 
     @Override
     public ExchangeClient connect(URL url, ExchangeHandler handler) throws RemotingException {
-        return null;
+        return new HeaderExchangeClient(Transporters.connect(url, handler));
     }
 }

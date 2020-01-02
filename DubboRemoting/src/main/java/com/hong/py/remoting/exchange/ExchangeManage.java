@@ -20,6 +20,15 @@ public class ExchangeManage {
     }
 
     //默认为Header 默认为HeaderExchange
+    public static ExchangeClient getExchangeClient(URL url,ExchangeHandler handler) throws RemotingException {
+        if (url == null) {
+            throw new IllegalArgumentException("url==null");
+        }
+        ExchangeClient exchangeClient = getExchange(url).connect(url, handler);
+        return exchangeClient;
+    }
+
+    //默认为Header 默认为HeaderExchange
     public static Exchanger getExchange(URL url) {
         String parameter = url.getParameter(Constants.EXCHANGER_KEY, Constants.DEFAULT_EXCHANGER);
         return ExtensionLoader.getExtensionLoader(Exchanger.class).getExtension(parameter);

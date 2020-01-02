@@ -36,6 +36,7 @@ public class DubboInvoker<T> implements Invoker<T> {
 
     private final URL url;
 
+    //为了 销毁
     private final Set<Invoker<?>> invokers;
 
     private volatile boolean available=false;
