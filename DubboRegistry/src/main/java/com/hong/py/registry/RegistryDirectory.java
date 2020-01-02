@@ -1,5 +1,6 @@
 package com.hong.py.registry;
 
+import com.hong.py.cluster.Directory;
 import com.hong.py.commonUtils.Constants;
 import com.hong.py.commonUtils.NetUtils;
 import com.hong.py.commonUtils.StringUtils;
@@ -7,12 +8,14 @@ import com.hong.py.commonUtils.URL;
 import com.hong.py.extension.ExtensionLoader;
 import com.hong.py.logger.Logger;
 import com.hong.py.logger.LoggerFactory;
+import com.hong.py.rpc.Invocation;
 import com.hong.py.rpc.Invoker;
 import com.hong.py.rpc.Protocol;
+import com.hong.py.rpc.RpcException;
 
 import java.util.*;
 
-public class RegistryDirectory<T> implements NotifyListener {
+public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
 
     private static final Logger logger = LoggerFactory.getLogger(RegistryDirectory.class);
 
@@ -53,6 +56,11 @@ public class RegistryDirectory<T> implements NotifyListener {
 
     public URL getUrl() {
         return this.url;
+    }
+
+    @Override
+    public boolean isAvailable() {
+        return false;
     }
 
     public URL getConsumerUrl() {
@@ -218,5 +226,15 @@ public class RegistryDirectory<T> implements NotifyListener {
 
     private void destroyUnusedInvokers(Map<String, Invoker<T>> oldUrlInvokerMap, Map<String, Invoker<T>> newUrlInvokerMap) {
 
+    }
+
+    @Override
+    public Class<T> getInterface() {
+        return serviceType;
+    }
+
+    @Override
+    public List<Invoker<T>> list(Invocation invocation) throws RpcException {
+        return null;
     }
 }

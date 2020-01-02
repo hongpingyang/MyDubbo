@@ -1,7 +1,9 @@
 package com.hong.py.registry;
 
+import com.hong.py.cluster.Cluster;
 import com.hong.py.commonUtils.Constants;
 import com.hong.py.commonUtils.URL;
+import com.hong.py.extension.ExtensionLoader;
 import com.hong.py.registry.listener.OverrideNotifyListener;
 import com.hong.py.rpc.Exporter;
 import com.hong.py.rpc.Invoker;
@@ -24,6 +26,8 @@ public class RegistryProtocol implements Protocol {
     private final Map<URL, NotifyListener> notifyListenerMap = new HashMap<>();
     //为  RegistryFactory&Adaptive
     private RegistryFactory registryFactory;
+
+    private static final Cluster cluster = ExtensionLoader.getExtensionLoader(Cluster.class).getAdaptiveExtension();
 
     public Protocol getProtocol() {
         return protocol;
