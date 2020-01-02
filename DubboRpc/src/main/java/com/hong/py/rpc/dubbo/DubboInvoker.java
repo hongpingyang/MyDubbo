@@ -83,15 +83,13 @@ public class DubboInvoker<T> implements Invoker<T> {
             int timeout = getUrl().getMethodParameter(invocation.getMethodName(), Constants.TIMEOUT_KEY, Constants.DEFAULT_TIMEOUT);
 
             if (isOneway) { //没有回调
-
                 boolean isSent = getUrl().getMethodParameter(methodName, Constants.SENT_KEY, false);
                 currentClient.send(inv, isSent);
                 RpcContext.getContext().setFuture(null);
                 return new RpcResult();
-
             } else if (isAsync) {//有回调异步
                 ResponseFuture future = currentClient.request(inv, timeout);
-                RpcContext.getContext().setFuture();
+                RpcContext.getContext().setFuture(new FutureAdapter<T>(future));
                 return new RpcResult();
             }
             else { //有回调且不是异步
