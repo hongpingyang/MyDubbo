@@ -115,7 +115,7 @@ public class DubboInvoker<T> implements Invoker<T> {
 
     @Override
     public boolean isAvailable() {
-        return available;
+        return available;//需要修改
     }
 
     @Override

@@ -5,9 +5,12 @@ import com.hong.py.cluster.LoadBalance;
 import com.hong.py.commonUtils.Constants;
 import com.hong.py.commonUtils.URL;
 import com.hong.py.extension.ExtensionLoader;
+import com.hong.py.logger.Logger;
+import com.hong.py.logger.LoggerFactory;
 import com.hong.py.rpc.*;
 import com.hong.py.rpc.support.RpcUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -30,6 +33,7 @@ import java.util.Map;
 public abstract class AbstractClusterInvoker<T> implements Invoker<T> {
 
     private final Directory<T> directory;
+    private Logger logger = LoggerFactory.getLogger(AbstractClusterInvoker.class);
 
     public AbstractClusterInvoker(Directory<T> directory) {
         this.directory = directory;
@@ -76,6 +80,74 @@ public abstract class AbstractClusterInvoker<T> implements Invoker<T> {
     private List<Invoker<T>> list(Invocation invocation) {
         List<Invoker<T>> list = directory.list(invocation);
         return list;
+    }
+
+    /**
+     * 没有进行可用检查
+     * @param loadBalance
+     * @param invocation
+     * @param invokers
+     * @param selected
+     * @return
+     * @throws RpcException
+     */
+    protected Invoker<T> select(LoadBalance loadBalance, Invocation invocation,
+                                List<Invoker<T>> invokers, List<Invoker<T>> selected) throws RpcException {
+        if (invokers == null || invokers.isEmpty()) {
+            return null;
+        }
+        if (invokers.size() == 1)
+            return invokers.get(0);
+
+        String methodName = invocation == null ? "" : invocation.getMethodName();
+
+        if (loadBalance == null) {
+            loadBalance = ExtensionLoader.getExtensionLoader(LoadBalance.class).getExtension(Constants.DEFAULT_LOADBALANCE);
+        }
+
+        Invoker<T> invoker = loadBalance.select(invokers, getUrl(), invocation);
+
+        if (selected != null && selected.contains(invoker)
+             ||(!invoker.isAvailable())) {
+
+            try {
+                Invoker<T> rinvoker = reselect(loadBalance, invocation, invokers, selected);
+
+                invoker = rinvoker;
+            }catch (Throwable t) {
+                logger.error("cluster reselect fail reason is :" + t.getMessage() + " if can not solve, you can set cluster.availablecheck=false in url", t);
+            }
+        }
+
+        return invoker;
+    }
+
+    /**
+     * 重新获取一次
+     * @param loadBalance
+     * @param invocation
+     * @param invokers
+     * @param selected
+     * @return
+     * @throws RpcException
+     */
+    private Invoker<T> reselect(LoadBalance loadBalance, Invocation invocation, List<Invoker<T>> invokers, List<Invoker<T>> selected) throws RpcException  {
+
+        List<Invoker<T>> copyinvokers = new ArrayList<>();
+        for (Invoker<T> invoker : invokers) {
+            if (!(selected != null && selected.contains(invoker)
+                    ||(!invoker.isAvailable()))) {
+                copyinvokers.add(invoker);
+            }
+        }
+
+        if (copyinvokers == null || copyinvokers.isEmpty()) {
+            return null;
+        }
+        if (copyinvokers.size() == 1)
+            return copyinvokers.get(0);
+
+        return loadBalance.select(copyinvokers, getUrl(), invocation);
     }
 
     @Override

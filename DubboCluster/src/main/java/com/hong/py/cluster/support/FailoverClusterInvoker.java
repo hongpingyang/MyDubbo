@@ -2,6 +2,7 @@ package com.hong.py.cluster.support;
 
 import com.hong.py.cluster.Directory;
 import com.hong.py.cluster.LoadBalance;
+import com.hong.py.commonUtils.Constants;
 import com.hong.py.logger.Logger;
 import com.hong.py.logger.LoggerFactory;
 import com.hong.py.rpc.Invocation;
@@ -9,6 +10,7 @@ import com.hong.py.rpc.Invoker;
 import com.hong.py.rpc.Result;
 import com.hong.py.rpc.RpcException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,6 +40,32 @@ public class FailoverClusterInvoker<T> extends AbstractClusterInvoker<T> {
     @Override
     protected Result doInvoke(Invocation invocation, List<Invoker<T>> invokers, LoadBalance loadBalance) throws RpcException {
 
-        return null;
+        List<Invoker<T>> copyInvokers=invokers;
+        int retryies = getUrl().getMethodParameter(invocation.getMethodName(),Constants.RETRIES_KEY, Constants.DEFAULT_RETRIES);
+        retryies+=1; // 包含一次正常调用
+        if (retryies <= 0) {
+            retryies=1;
+        }
+
+        RpcException rpcException=null;
+        List<Invoker<T>> invoked = new ArrayList<>(copyInvokers.size());
+
+        for (int i = 0; i < retryies; i++) {
+            Invoker<T> selectInvoker = select(loadBalance, invocation, invokers, invoked);
+            invoked.add(selectInvoker);
+            try {
+                Result result = selectInvoker.invoke(invocation);
+                if (rpcException != null) {
+                  logger.warn(rpcException.getMessage());
+                }
+                return result;
+            } catch (RpcException e) {
+                rpcException=e;
+            } catch (Throwable throwable) {
+                rpcException = new RpcException(throwable);
+            }
+        }
+
+        throw new RpcException("invoke failed");
     }
 }
