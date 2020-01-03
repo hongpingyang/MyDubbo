@@ -34,6 +34,11 @@ public interface Directory<T> {
     boolean isAvailable();
 
     /**
+     * destroy.
+     */
+    void destroy();
+
+    /**
      * 获取Invoker
      * @param invocation
      * @return

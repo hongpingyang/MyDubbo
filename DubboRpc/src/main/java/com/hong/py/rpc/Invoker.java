@@ -21,9 +21,8 @@ import com.hong.py.commonUtils.Node;
 /**
  * Invoker. (API/SPI, Prototype, ThreadSafe)
  *
- * @see com.hong.py.rpc.Protocol#refer(Class, com.alibaba.dubbo.common.URL)
+ * @see com.hong.py.rpc.Protocol
  * @see com.hong.py.rpc.InvokerListener
- * @see com.hong.py.rpc.protocol.AbstractInvoker
  */
 public interface Invoker<T> extends Node {
 

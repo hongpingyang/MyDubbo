@@ -1,11 +1,15 @@
 package com.hong.py.cluster.support;
 
 import com.hong.py.cluster.Directory;
+import com.hong.py.cluster.LoadBalance;
+import com.hong.py.commonUtils.Constants;
 import com.hong.py.commonUtils.URL;
-import com.hong.py.rpc.Invocation;
-import com.hong.py.rpc.Invoker;
-import com.hong.py.rpc.Result;
-import com.hong.py.rpc.RpcException;
+import com.hong.py.extension.ExtensionLoader;
+import com.hong.py.rpc.*;
+import com.hong.py.rpc.support.RpcUtils;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * 文件描述
@@ -23,7 +27,7 @@ import com.hong.py.rpc.RpcException;
  * <p>
  * Copyright © 2020 hongpy Technologies Inc. All Rights Reserved
  **/
-public  class AbstractClusterInvoker<T> implements Invoker<T> {
+public abstract class AbstractClusterInvoker<T> implements Invoker<T> {
 
     private final Directory<T> directory;
 
@@ -48,10 +52,31 @@ public  class AbstractClusterInvoker<T> implements Invoker<T> {
 
     @Override
     public Result invoke(Invocation invocation) throws RpcException {
-        return null;
+
+        LoadBalance loadBalance=null;
+
+        Map<String, String> attachments = RpcContext.getContext().getAttachments();
+        if (attachments != null&&attachments.size()>0) {
+            ((RpcInvocation) invocation).addAttachments(attachments);
+        }
+
+        List<Invoker<T>> invokers = list(invocation);
+        if (invokers != null && !invokers.isEmpty()) {
+            loadBalance = ExtensionLoader.getExtensionLoader(LoadBalance.class).getExtension(invokers.get(0).getUrl()
+                    .getMethodParameter(RpcUtils.getMethodName(invocation), Constants.LOADBALANCE_KEY, Constants.DEFAULT_LOADBALANCE));
+
+        }
+        return doInvoke(invocation, invokers, loadBalance);
     }
 
+    protected abstract Result doInvoke(Invocation invocation, List<Invoker<T>> invokers,
+                                   LoadBalance loadBalance) throws RpcException;
 
+
+    private List<Invoker<T>> list(Invocation invocation) {
+        List<Invoker<T>> list = directory.list(invocation);
+        return list;
+    }
 
     @Override
     public void destroy() {

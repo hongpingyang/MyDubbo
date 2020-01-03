@@ -12,6 +12,7 @@ import com.hong.py.rpc.Invocation;
 import com.hong.py.rpc.Invoker;
 import com.hong.py.rpc.Protocol;
 import com.hong.py.rpc.RpcException;
+import com.hong.py.rpc.support.RpcUtils;
 
 import java.util.*;
 
@@ -32,6 +33,7 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
     private volatile URL registeredConsumerUrl;
 
     private volatile Map<String, Invoker<T>> urlInvokerMap = new HashMap<>();
+    private volatile Map<String,List<Invoker<T>>> methodInvokerMap;
     private volatile Set<URL> cachedInvokerUrls; // The initial value is null and the midway may be assigned to null, please use the local variable reference
 
 
@@ -43,7 +45,6 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
         this.serviceType=type;
         this.serviceKey = url.getServiceKey();
         this.queryMap = StringUtils.parseQueryString(url.getParameterAndDecoded(Constants.REFER_KEY));
-
     }
 
     public void setRegistry(Registry registry) {
@@ -61,6 +62,11 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
     @Override
     public boolean isAvailable() {
         return false;
+    }
+
+    @Override
+    public void destroy() {
+
     }
 
     public URL getConsumerUrl() {
@@ -128,12 +134,13 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
         }
 
         Map<String, Invoker<T>> newUrlInvokerMap = toInvokers(invokerUrls);
-        //Map<String, List<Invoker<T>>> newMethodInvokerMap = toMethodInvokers(newUrlInvokerMap); // Change method name to map Invoker Map
+        Map<String, List<Invoker<T>>> newMethodInvokerMap = toMethodInvokers(newUrlInvokerMap); // Change method name to map Invoker Map
 
         if (newUrlInvokerMap == null || newUrlInvokerMap.size() == 0) {
             logger.error(new IllegalStateException("urls to invokers error .invokerUrls.size :" + invokerUrls.size() + ", invoker.size :0. urls :" + invokerUrls.toString()));
             return;
         }
+        this.methodInvokerMap = newMethodInvokerMap;
         this.urlInvokerMap = newUrlInvokerMap;
 
         try {
@@ -143,8 +150,6 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
         }
 
     }
-
-
 
     /**
      * 产生 invoker
@@ -220,9 +225,39 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
         return providerUrl;
     }
 
-    /*private Map<String, List<Invoker<T>>> toMethodInvokers(Map<String, Invoker<T>> newUrlInvokerMap) {
+    /**
+     * 产生MethodInvoker
+     * @param newUrlInvokerMap
+     * @return
+     */
+    private Map<String, List<Invoker<T>>> toMethodInvokers(Map<String, Invoker<T>> newUrlInvokerMap) {
+        Map<String, List<Invoker<T>>> methodInvokers = new HashMap<>();
+        List<Invoker<T>> invokerList = new ArrayList<>();
+        if (newUrlInvokerMap != null &&     newUrlInvokerMap.size()>0) {
+            for (Invoker<T> invoker : newUrlInvokerMap.values()) {
+                String parameter = invoker.getUrl().getParameter(Constants.METHODS_KEY);
+                if (parameter != null && parameter.length() > 0) {
+                    String[] methods = Constants.COMMA_SPLIT_PATTERN.split(parameter);
+                    if (methods != null && methods.length > 0) {
+                        for (String method : methods) {
+                            if (method != null && method.length() > 0 &&
+                                    !Constants.ANY_VALUE.equals(method)) {
+                                List<Invoker<T>> methodinvokerList = methodInvokers.get(method);
+                                if (methodinvokerList == null) {
+                                    methodinvokerList = new ArrayList<>();
+                                    methodInvokers.put(method, methodinvokerList);
+                                }
+                                methodinvokerList.add(invoker);
+                            }
+                        }
+                    }
+                }
+                invokerList.add(invoker);
+            }
+        }
 
-    }*/
+        return Collections.unmodifiableMap(methodInvokers);
+    }
 
     private void destroyUnusedInvokers(Map<String, Invoker<T>> oldUrlInvokerMap, Map<String, Invoker<T>> newUrlInvokerMap) {
 
@@ -233,8 +268,28 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
         return serviceType;
     }
 
+
+    /**
+     *获取Invokerlist
+     * @param invocation
+     * @return
+     * @throws RpcException
+     */
     @Override
     public List<Invoker<T>> list(Invocation invocation) throws RpcException {
-        return null;
+
+        List<Invoker<T>> invokerList=null;
+        Map<String, List<Invoker<T>>> localmethodInvokerMap = this.methodInvokerMap;
+        if (localmethodInvokerMap != null && localmethodInvokerMap.size() > 0) {
+            String methodName = RpcUtils.getMethodName(invocation);
+
+            invokerList = localmethodInvokerMap.get(methodName);
+
+            if (invokerList == null) {
+                invokerList = localmethodInvokerMap.get(Constants.ANY_VALUE);
+            }
+        }
+
+        return invokerList==null?new ArrayList<Invoker<T>>(0):invokerList;
     }
 }
