@@ -10,8 +10,9 @@ import com.hong.py.remoting.exchange.ExchangeHandler;
 import com.hong.py.remoting.transport.ChannelHandlerDelegate;
 
 /**
- * 服务端和客户端的  消息处理类，会wrap真正的处理ExchangeHandler
+ * 服务端和客户端的  消息处理类，  会wrap真正的处理ExchangeHandler
  * 都会调用HeaderExchangeChannel来处理
+ * 有些在这里处理待完成
  */
 public class HeaderExchangeHandler implements ChannelHandlerDelegate {
 
