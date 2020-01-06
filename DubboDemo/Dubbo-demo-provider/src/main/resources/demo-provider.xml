@@ -8,7 +8,7 @@
 
     <hong:protocol name="dubbo" port="20880"></hong:protocol>
 
-    <hong:registry protocol="zookeeper" address="10.20.19.203:2181"></hong:registry>
+    <hong:registry protocol="zookeeper" address="10.20.29.203:2181"></hong:registry>
 
     <bean id="demoHelloService" class="com.hong.py.provider.DemoHelloServiceImpl"></bean>
 

@@ -40,8 +40,8 @@ public class CuratorZookeeperClient implements ZookeeperClient {
         CuratorFrameworkFactory.Builder builder=CuratorFrameworkFactory.builder()
                 .connectString(url.getAddress())
                 .connectionTimeoutMs(timeout)
-                .retryPolicy(new RetryNTimes(1,1000))
-                .namespace("hongpy");
+                .retryPolicy(new RetryNTimes(1,1000));
+                //.namespace("hongpy");
 
         return builder.build();
     }
