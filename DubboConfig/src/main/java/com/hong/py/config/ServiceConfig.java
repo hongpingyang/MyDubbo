@@ -106,7 +106,9 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
 
         //获取注册中心
         if (application != null) {
-            registries = application.getRegistries();
+            if (registries == null) {
+                registries = application.getRegistries();
+            }
         }
 
         try {

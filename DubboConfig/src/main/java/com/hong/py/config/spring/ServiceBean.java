@@ -27,6 +27,7 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
 
 
     private ApplicationContext applicationContext;
+
     private String beanName;
 
     public ServiceBean() {
@@ -34,10 +35,13 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
 
     }
 
-
     @Override
     public void setBeanName(String s) {
         this.beanName=s;
+    }
+
+    public String getBeanName() {
+        return beanName;
     }
 
     @Override
@@ -120,7 +124,8 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         //暴露服务
-        export();
+        if(!isExported())
+          export();
     }
 
 

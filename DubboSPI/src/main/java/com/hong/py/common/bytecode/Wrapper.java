@@ -36,13 +36,13 @@ public abstract class Wrapper {
         String name = cl.getName();
         ClassLoader classLoader = ClassHelper.getClassLoader(cl);
         StringBuilder mt =new StringBuilder(" public Object invokeMethod(Object instance,String mn,Class[] types,Object[] args) throws "+ InvocationTargetException.class.getName()+"  { ");
-        mt.append(name).append(" w; try{ w=((").append(name).append(")$1;}catch(Throwable e){ throw new IllegalArgumentException(e); }");
+        mt.append(name).append(" w; try { w= ((").append(name).append(")$1);} catch(Throwable e) { throw new IllegalArgumentException(e); }");
 
         List<String> mns = new ArrayList<>();
         Method[] methods = cl.getMethods();
         boolean hasMethod = hasMethods(methods);
         if (hasMethod) {
-            mt.append(" try{");
+            mt.append(" try {");
         }
         for (Method method : methods) {
             if(method.getDeclaringClass()==Object.class)
@@ -50,7 +50,7 @@ public abstract class Wrapper {
             String methodName = method.getName();
             mt.append(" if(\""+methodName+"\".equals( $2 ) ");
             if (method.getParameterTypes().length>0) {
-                mt.append("&& $4.length == "+method.getParameterTypes().length);
+                mt.append(" && $4.length == "+method.getParameterTypes().length);
             }
 
 
@@ -59,17 +59,16 @@ public abstract class Wrapper {
             if (method.getReturnType() == Void.TYPE) {
                 mt.append(" w."+methodName+"("+getArgsStr(parameterTypes,"$4")+"); return null;");
             } else {
-                mt.append(" return ($W)w."+methodName+"("+getArgsStr(parameterTypes,"$4")+");");
+                mt.append(" return ($w)w."+methodName+"("+getArgsStr(parameterTypes,"$4")+");");
             }
             mt.append(" }");
             mns.add(methodName);
         }
         if (hasMethod) {
-            mt.append("}catch(Throwable e){ throw new InvocationTargetException(e); }");
+            mt.append(" } catch(Throwable e) { throw new java.lang.reflect.InvocationTargetException(e); }");
         }
 
-        mt.append("throw new "+ NoSuchMethodException.class.getName()+"(\" no such method \"+$2+\" \"");
-
+        mt.append(" throw new " + NoSuchMethodException.class.getName() + "(\"Not found method \\\"\"+$2+\"\\\" in class " + cl.getName() + ".\"); }");
 
         long id = CLASS_WRAPPER_ID.getAndIncrement();
         ClassGenerator cg = ClassGenerator.getInstance(classLoader);
@@ -118,8 +117,8 @@ public abstract class Wrapper {
         for (int i = 0; i < len; i++) {
             builder.append(arg(parameterTypes[i],args+"["+i+"]")+",");
         }
-        builder.substring(0, builder.length() - 1);
-        return builder.toString();
+        String substring = builder.substring(0, builder.length() - 1);
+        return substring;
     }
 
     public static String arg(Class<?> cl, String name) {
