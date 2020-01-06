@@ -46,15 +46,23 @@ public class CuratorZookeeperClient implements ZookeeperClient {
         return builder.build();
     }
 
+    //在每次新建一个节点时，一定要判断该节点（路径）是否存在
     @Override
     public void create(String path, boolean ephemeral) {
+        if (!ephemeral) {
+            if (checkExists(path)) {
+                return;
+            }
+        }
+        int i = path.lastIndexOf('/');
+        if (i > 0) {
+            create(path.substring(0, i), false);
+        }
         if (ephemeral) {
             createEphemeral(path);
         }
         else {
-            if (!checkExists(path)) {
-                createPersistent(path);
-            }
+            createPersistent(path);
         }
     }
 
