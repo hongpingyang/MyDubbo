@@ -2,6 +2,6 @@ package com.hong.py.demo;
 
 /**
  **/
-public interface DemoHelloService {
+public interface DemoHelloServiceforHpy {
     String sayHello(String name);
 }

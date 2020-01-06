@@ -10,7 +10,7 @@ import com.hong.py.remoting.exchange.ExchangeHandler;
 import com.hong.py.remoting.transport.ChannelHandlerDelegate;
 
 /**
- * 服务端和客户端的  消息处理类，  会wrap真正的处理ExchangeHandler
+ * 服务端和客户端的  消息处理类,会wrap真正的处理ExchangeHandler
  * 都会调用HeaderExchangeChannel来处理
  * 有些在这里处理待完成
  */
@@ -57,7 +57,7 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
     public void sent(Channel channel, Object message) throws RemotingException {
         ExchangeChannel exchangeChannel = HeaderExchangeChannel.getOrAddChannel(channel);
         try {
-            this.exchangeHandler.sent(channel,message);
+            this.exchangeHandler.sent(channel, message);
         } finally {
             HeaderExchangeChannel.removeChannelIfDisconnected(channel);
         }
@@ -68,7 +68,7 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
         ExchangeChannel exchangeChannel = HeaderExchangeChannel.getOrAddChannel(channel);
         try {
 
-            this.exchangeHandler.received(channel,message);
+            this.exchangeHandler.received(channel, message);
         } finally {
             HeaderExchangeChannel.removeChannelIfDisconnected(channel);
         }
@@ -78,7 +78,7 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
     public void caught(Channel channel, Throwable exception) throws RemotingException {
         ExchangeChannel exchangeChannel = HeaderExchangeChannel.getOrAddChannel(channel);
         try {
-            this.exchangeHandler.caught(channel,exception);
+            this.exchangeHandler.caught(channel, exception);
         } finally {
             HeaderExchangeChannel.removeChannelIfDisconnected(channel);
         }
