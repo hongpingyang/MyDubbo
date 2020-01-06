@@ -107,6 +107,10 @@ public final class URL implements Serializable {
         this(protocol, null, null, host, port, null, (Map<String, String>) null);
     }
 
+    public URL(String protocol, String host, int port, String[] pairs) { // varargs ... confilict with the following path argument, use array instead.
+        this(protocol, null, null, host, port, null, CollectionUtils.toStringMap(pairs));
+    }
+
     public URL(String protocol, String host, int port, Map<String, String> parameters) {
         this(protocol, null, null, host, port, null, parameters);
     }
@@ -115,6 +119,9 @@ public final class URL implements Serializable {
         this(protocol, null, null, host, port, path, (Map<String, String>) null);
     }
 
+    public URL(String protocol, String host, int port, String path, String... pairs) {
+        this(protocol, null, null, host, port, path, CollectionUtils.toStringMap(pairs));
+    }
 
     public URL(String protocol, String host, int port, String path, Map<String, String> parameters) {
         this(protocol, null, null, host, port, path, parameters);
@@ -124,6 +131,9 @@ public final class URL implements Serializable {
         this(protocol, username, password, host, port, path, (Map<String, String>) null);
     }
 
+    public URL(String protocol, String username, String password, String host, int port, String path, String... pairs) {
+        this(protocol, username, password, host, port, path, CollectionUtils.toStringMap(pairs));
+    }
 
     public URL(String protocol, String username, String password, String host, int port, String path, Map<String, String> parameters) {
         if ((username == null || username.length() == 0)
@@ -285,6 +295,21 @@ public final class URL implements Serializable {
         return new URL(protocol, username, password, host, port, path, getParameters());
     }
 
+    /**
+     * Fetch IP address for this URL.
+     *
+     * Pls. note that IP should be used instead of Host when to compare with socket's address or to search in a map
+     * which use address as its key.
+     *
+     * @return ip in string format
+     */
+    public String getIp() {
+        if (ip == null) {
+            ip = NetUtils.getIpByHost(host);
+        }
+        return ip;
+    }
+
     public int getPort() {
         return port;
     }
@@ -312,6 +337,34 @@ public final class URL implements Serializable {
             host = address;
         }
         return new URL(protocol, username, password, host, port, path, getParameters());
+    }
+
+    public String getBackupAddress() {
+        return getBackupAddress(0);
+    }
+
+    public String getBackupAddress(int defaultPort) {
+        StringBuilder address = new StringBuilder(appendDefaultPort(getAddress(), defaultPort));
+        String[] backups = getParameter(Constants.BACKUP_KEY, new String[0]);
+        if (backups != null && backups.length > 0) {
+            for (String backup : backups) {
+                address.append(",");
+                address.append(appendDefaultPort(backup, defaultPort));
+            }
+        }
+        return address.toString();
+    }
+
+    public List<URL> getBackupUrls() {
+        List<URL> urls = new ArrayList<URL>();
+        urls.add(this);
+        String[] backups = getParameter(Constants.BACKUP_KEY, new String[0]);
+        if (backups != null && backups.length > 0) {
+            for (String backup : backups) {
+                urls.add(this.setAddress(backup));
+            }
+        }
+        return urls;
     }
 
     private String appendDefaultPort(String address, int defaultPort) {
@@ -796,6 +849,13 @@ public final class URL implements Serializable {
         return value != null && value.length() > 0;
     }
 
+    public boolean isLocalHost() {
+        return NetUtils.isLocalHost(host) || getParameter(Constants.LOCALHOST_KEY, false);
+    }
+
+    public boolean isAnyHost() {
+        return Constants.ANYHOST_VALUE.equals(host) || getParameter(Constants.ANYHOST_KEY, false);
+    }
 
     public URL addParameterAndEncoded(String key, String value) {
         if (value == null || value.length() == 0) {
@@ -937,6 +997,12 @@ public final class URL implements Serializable {
         return addParameters(map);
     }
 
+    public URL addParameterString(String query) {
+        if (query == null || query.length() == 0) {
+            return this;
+        }
+        return addParameters(StringUtils.parseQueryString(query));
+    }
 
     public URL removeParameter(String key) {
         if (key == null || key.length() == 0) {
@@ -1093,7 +1159,7 @@ public final class URL implements Serializable {
         }
         String host;
         if (useIP) {
-            host = getHost(); //getIp();
+            host = getIp();
         } else {
             host = getHost();
         }
