@@ -59,6 +59,7 @@ public class NettyClient extends AbstractClient {
                         NettyChannel.removeChannelIfDisconnected(oldChannel);
                     }
                 }
+                NettyClient.this.channel = newChannel;
             }
         } finally {
 
