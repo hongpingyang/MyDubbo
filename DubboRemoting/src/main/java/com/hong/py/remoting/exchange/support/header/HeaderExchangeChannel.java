@@ -74,7 +74,7 @@ public class HeaderExchangeChannel implements ExchangeChannel {
     @Override
     public ResponseFuture request(Object request, int timeout) throws RemotingException {
         Request req = new Request();
-        req.setData(request);
+        req.setData(request); //request 实际是invocation
         req.setmTwoWay(true);
         DefaultFuture future = new DefaultFuture(channel, req, timeout);
         try {

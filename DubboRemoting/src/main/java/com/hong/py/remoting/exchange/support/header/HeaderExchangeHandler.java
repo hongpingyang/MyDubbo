@@ -76,12 +76,12 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
     private Response handleRequest(ExchangeChannel exchangeChannel, Request request) {
         Response response = new Response();
         // find handler by message class.
-        Object msg = request.getData();
+        Object msg = request.getData();//msg 实际是invocation
         try {
             // handle data.
             Object result = exchangeHandler.reply(exchangeChannel, msg);
             response.setStatus(Response.OK);
-            response.setmResult(result);
+            response.setmResult(result); //result 实际是RpcResult
         } catch (Throwable e) {
             response.setStatus(Response.SERVICE_ERROR);
             response.setmErrorMsg(e.getMessage());
