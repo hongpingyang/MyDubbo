@@ -2,11 +2,9 @@ package com.hong.py.rpc.proxy;
 
 import com.hong.py.common.bytecode.Wrapper;
 import com.hong.py.commonUtils.URL;
-import com.hong.py.rpc.Invocation;
-import com.hong.py.rpc.Invoker;
-import com.hong.py.rpc.Result;
-import com.hong.py.rpc.RpcException;
+import com.hong.py.rpc.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.InvalidPropertiesFormatException;
 
 /**
@@ -48,15 +46,13 @@ public class WrapperProxy<T> implements Invoker<T> {
     //发起调用
     @Override
     public Result invoke(Invocation invocation) throws RpcException {
-        //todo
         try {
-            invokeMethod(proxy, invocation.getMethodName(), invocation.getParameterTypes(), invocation.getArguments());
-
-
-        } catch (Throwable throwable) {
+            return new RpcResult(invokeMethod(proxy, invocation.getMethodName(), invocation.getParameterTypes(), invocation.getArguments()));
+        }catch (InvocationTargetException e) {
+            return new RpcResult(e.getTargetException());
+        }  catch (Throwable throwable) {
             throw new RpcException("failed to invoke remote proxy method " + invocation.getMethodName());
         }
-        return null;
     }
 
 

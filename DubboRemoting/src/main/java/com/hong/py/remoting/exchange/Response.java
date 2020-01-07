@@ -18,6 +18,8 @@ public class Response {
      */
     public static final byte BAD_REQUEST = 40;
 
+    public static final byte SERVICE_ERROR =70;
+
     private byte mStatus=OK;
 
     private Object mResult;
