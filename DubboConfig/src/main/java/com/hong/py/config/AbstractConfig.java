@@ -479,7 +479,7 @@ public abstract class AbstractConfig implements Serializable {
     public String toString() {
         try {
             StringBuilder buf = new StringBuilder();
-            buf.append("<dubbo:");
+            buf.append("<hong:");
             buf.append(getTagName(getClass()));
             Method[] methods = getClass().getMethods();
             for (Method method : methods) {

@@ -212,6 +212,8 @@ public class ZookeeperRegistry  implements Registry {
                 }
 
                 //回调NotifyListener,更新本地缓存信息
+                //第一次监听的时候设置url的protocol为Empty
+                //达到区别和清空Invokers的作用
                 notify(url, listener, urls);
             }
         } catch (Throwable e) {

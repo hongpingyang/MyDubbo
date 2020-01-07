@@ -35,7 +35,7 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
     private volatile Map<String, Invoker<T>> urlInvokerMap = new HashMap<>();
     private volatile Map<String,List<Invoker<T>>> methodInvokerMap;
     private volatile Set<URL> cachedInvokerUrls; // The initial value is null and the midway may be assigned to null, please use the local variable reference
-
+    private volatile boolean forbidden=false;
 
     //directoryUrl  zookeeper://10.20.29.203:2181/com.alibaba.dubbo.registry.RegistryService?application=demo-consumer&check=false&dubbo=2.0.2&interface=com.alibaba.dubbo.demo.DemoService2&methods=sayHello&pid=20052&qos.port=33333&register.ip=192.168.158.78&side=consumer&timestamp=1577761153089
     //overrideDirectoryUrl zookeeper://10.20.29.203:2181/com.alibaba.dubbo.registry.RegistryService?application=demo-consumer&check=false&dubbo=2.0.2&interface=com.alibaba.dubbo.demo.DemoService2&methods=sayHello&pid=20052&qos.port=33333&register.ip=192.168.158.78&side=consumer&timestamp=1577761153089
@@ -121,35 +121,46 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
 
     private void refreshInvoker(List<URL> invokerUrls) {
 
-        //dubbo://192.168.158.78:20880/com.alibaba.dubbo.demo.DemoService2?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService2&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService2&methods=sayHello&pid=27096&side=provider&timestamp=1577760953001
-        Map<String, Invoker<T>> oldUrlInvokerMap = this.urlInvokerMap; // local reference
-        if (invokerUrls.isEmpty() && this.cachedInvokerUrls != null) {
-            invokerUrls.addAll(this.cachedInvokerUrls);
+        if (invokerUrls != null && invokerUrls.size() == 1 && invokerUrls.get(0)!=null&&
+                invokerUrls.get(0).getParameter(Constants.PROTOCOL_KEY, Constants.DEFAULT_PROTOCOL) == Constants.EMPTY_PROTOCOL) {
+              this.forbidden=true;
+              this.methodInvokerMap=null;
+              destroyAllInvokers();
+
         } else {
-            this.cachedInvokerUrls = new HashSet<URL>();
-            this.cachedInvokerUrls.addAll(invokerUrls);//Cached invoker urls, convenient for comparison
-        }
-        if (invokerUrls.isEmpty()) {
-            return;
-        }
 
-        Map<String, Invoker<T>> newUrlInvokerMap = toInvokers(invokerUrls);
-        Map<String, List<Invoker<T>>> newMethodInvokerMap = toMethodInvokers(newUrlInvokerMap); // Change method name to map Invoker Map
+            this.forbidden=false;
+            //dubbo://192.168.158.78:20880/com.alibaba.dubbo.demo.DemoService2?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService2&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService2&methods=sayHello&pid=27096&side=provider&timestamp=1577760953001
+            Map<String, Invoker<T>> oldUrlInvokerMap = this.urlInvokerMap; // local reference
+            if (invokerUrls.isEmpty() && this.cachedInvokerUrls != null) {
+                invokerUrls.addAll(this.cachedInvokerUrls);
+            } else {
+                this.cachedInvokerUrls = new HashSet<URL>();
+                this.cachedInvokerUrls.addAll(invokerUrls);//Cached invoker urls, convenient for comparison
+            }
+            if (invokerUrls.isEmpty()) {
+                return;
+            }
 
-        if (newUrlInvokerMap == null || newUrlInvokerMap.size() == 0) {
-            logger.error(new IllegalStateException("urls to invokers error .invokerUrls.size :" + invokerUrls.size() + ", invoker.size :0. urls :" + invokerUrls.toString()));
-            return;
-        }
-        this.methodInvokerMap = newMethodInvokerMap;
-        this.urlInvokerMap = newUrlInvokerMap;
+            Map<String, Invoker<T>> newUrlInvokerMap = toInvokers(invokerUrls);
+            Map<String, List<Invoker<T>>> newMethodInvokerMap = toMethodInvokers(newUrlInvokerMap); // Change method name to map Invoker Map
 
-        try {
-            destroyUnusedInvokers(oldUrlInvokerMap, newUrlInvokerMap); // Close the unused Invoker
-        } catch (Exception e) {
-            logger.warn("destroyUnusedInvokers error. ", e);
+            if (newUrlInvokerMap == null || newUrlInvokerMap.size() == 0) {
+                logger.error(new IllegalStateException("urls to invokers error .invokerUrls.size :" + invokerUrls.size() + ", invoker.size :0. urls :" + invokerUrls.toString()));
+                return;
+            }
+            this.methodInvokerMap = newMethodInvokerMap;
+            this.urlInvokerMap = newUrlInvokerMap;
+
+            try {
+                destroyUnusedInvokers(oldUrlInvokerMap, newUrlInvokerMap); // Close the unused Invoker
+            } catch (Exception e) {
+                logger.warn("destroyUnusedInvokers error. ", e);
+            }
         }
 
     }
+
 
     /**
      * 产生 invoker
@@ -259,7 +270,50 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
         return Collections.unmodifiableMap(methodInvokers);
     }
 
+    private void destroyAllInvokers() {
+        Map<String, Invoker<T>> localurlInvokerMap = this.urlInvokerMap;
+        if (localurlInvokerMap != null) {
+            for (Invoker<T> invoker : localurlInvokerMap.values()) {
+                invoker.destroy();
+            }
+        }
+        localurlInvokerMap.clear();
+        this.methodInvokerMap=null;
+    }
+
     private void destroyUnusedInvokers(Map<String, Invoker<T>> oldUrlInvokerMap, Map<String, Invoker<T>> newUrlInvokerMap) {
+
+        if (newUrlInvokerMap == null || newUrlInvokerMap.size() == 0) {
+            destroyAllInvokers();
+            return;
+        }
+        List<String> deleted=null;
+        if (oldUrlInvokerMap != null) {
+            Collection<Invoker<T>> newvalues = newUrlInvokerMap.values();
+            for (Map.Entry<String,Invoker<T>> entry : oldUrlInvokerMap.entrySet()) {
+                if (!newvalues.contains(entry.getValue())) {
+                    if (deleted == null) {
+                        deleted = new ArrayList<>();
+                    }
+                    deleted.add(entry.getKey());
+                }
+            }
+        }
+        if (deleted != null) {
+            for (String url : deleted) {
+                Invoker<T> remove = this.urlInvokerMap.remove(url);
+                if (remove != null) {
+                    try {
+                        remove.destroy();
+                        if (logger.isDebugEnabled()) {
+                           logger.debug("invoker ["+remove.getUrl()+"] destory succeed.");
+                        }
+                    } catch (Exception e) {
+                        logger.warn("invoker [" + remove.getUrl() + "] destory failed." + e.getMessage(), e);
+                    }
+                }
+            }
+        }
 
     }
 
@@ -267,7 +321,6 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
     public Class<T> getInterface() {
         return serviceType;
     }
-
 
     /**
      *获取Invokerlist
@@ -277,7 +330,9 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
      */
     @Override
     public List<Invoker<T>> list(Invocation invocation) throws RpcException {
-
+        if (forbidden) {
+            throw new RpcException(" ");
+        }
         List<Invoker<T>> invokerList=null;
         Map<String, List<Invoker<T>>> localmethodInvokerMap = this.methodInvokerMap;
         if (localmethodInvokerMap != null && localmethodInvokerMap.size() > 0) {
