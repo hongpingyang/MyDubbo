@@ -78,7 +78,7 @@ public class DubboInvoker<T> implements Invoker<T> {
             }
             //是否是异步调用
             boolean isAsync = RpcUtils.isAsync(getUrl(), invocation);
-            //是否有回调 默认是true
+            //是否有回调 默认是false
             boolean isOneway = RpcUtils.isOneway(getUrl(), invocation);
 
             int timeout = getUrl().getMethodParameter(invocation.getMethodName(), Constants.TIMEOUT_KEY, Constants.DEFAULT_TIMEOUT);

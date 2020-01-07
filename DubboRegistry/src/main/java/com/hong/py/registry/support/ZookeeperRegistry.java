@@ -14,8 +14,7 @@ import com.hong.py.registry.zookeeper.ZookeeperClient;
 import com.hong.py.rpc.RpcException;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.*;
 
 public class ZookeeperRegistry  implements Registry {
 
@@ -42,8 +41,26 @@ public class ZookeeperRegistry  implements Registry {
     private final String root;
 
     private final ZookeeperClient client;
+    private final int retryPeriod;
+    private final ScheduledExecutorService retryExecutor = Executors.newScheduledThreadPool(1);
+    private final ScheduledFuture<?> retryFuture;
+
 
     public ZookeeperRegistry(URL url,ZookeeperTransporter zookeeperTransporter) {
+
+        this.retryPeriod = url.getParameter(Constants.REGISTRY_RETRY_PERIOD_KEY, Constants.DEFAULT_REGISTRY_RETRY_PERIOD);
+        this.retryFuture = retryExecutor.scheduleWithFixedDelay(new Runnable() {
+            @Override
+            public void run() {
+                // Check and connect to the registry
+                try {
+                    retry();
+                } catch (Throwable t) { // Defensive fault tolerance
+                    logger.error("Unexpected error occur at failed retry, cause: " + t.getMessage(), t);
+                }
+            }
+        }, retryPeriod, retryPeriod, TimeUnit.MILLISECONDS);
+
         String group = url.getParameter(Constants.GROUP_KEY, DEFAULT_ROOT);
 
         if (!group.startsWith(Constants.PATH_SEPARATOR)) {
@@ -67,9 +84,39 @@ public class ZookeeperRegistry  implements Registry {
         });
     }
 
+    //线程里重试
+    private void retry() {
+
+        if (!failedRegistered.isEmpty()) {
+            Set<URL> failed = new HashSet<>(this.failedRegistered);
+            for (URL url : failed) {
+                register(url);
+                failedRegistered.remove(url);
+            }
+        }
+
+        if (!failedSubscribed.isEmpty()) {
+            Map<URL, Set<NotifyListener>> failed = new HashMap<>(this.failedSubscribed);
+            for (Map.Entry<URL, Set<NotifyListener>> entry : failed.entrySet()) {
+                if (entry.getValue() == null || entry.getValue().size() == 0) {
+                    failed.remove(entry.getKey());
+                }
+                if (failed.size() >= 0) {
+                    URL url = entry.getKey();
+                    Set<NotifyListener> listeners = entry.getValue();
+                    for (NotifyListener listener : entry.getValue()) {
+                        subscribe(url, listener);
+                        listeners.remove(listener);
+                    }
+                }
+            }
+        }
+    }
+
     private void recover() {
 
-        Set<URL> registered = this.registered;
+        Set<URL> registered = new HashSet<>(this.registered);
+
         if (registered != null&&!registered.isEmpty()) {
             for (URL url : registered) {
                 failedRegistered.add(url);
@@ -254,8 +301,6 @@ public class ZookeeperRegistry  implements Registry {
         } catch (Throwable e) {
             throw new RpcException("Failed to subscribe " + url + " to zookeeper " + getUrl() + ", cause: " + e.getMessage(), e);
         }
-
-
     }
 
     private void addFailedSubscribe(URL url, NotifyListener listener) {
@@ -403,7 +448,7 @@ public class ZookeeperRegistry  implements Registry {
 
     @Override
     public boolean isAvailable() {
-        return false;
+        return true;
     }
 
     @Override
