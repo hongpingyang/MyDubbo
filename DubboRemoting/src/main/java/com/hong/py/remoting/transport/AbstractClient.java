@@ -42,8 +42,8 @@ public abstract class AbstractClient extends AbstractEndPoint implements Client 
             close();
         }
 
-        executor = (ExecutorService) ExtensionLoader.getExtensionLoader(DataStore.class)
-                .getDefaultExtension().get(Constants.CONSUMER_SIDE, Integer.toString(url.getPort()));
+        //executor = (ExecutorService) ExtensionLoader.getExtensionLoader(DataStore.class)
+        //        .getDefaultExtension().get(Constants.CONSUMER_SIDE, Integer.toString(url.getPort()));
     }
 
     //创建线程池

@@ -2,6 +2,7 @@ package com.hong.py.registry.zookeeper;
 
 import com.hong.py.commonUtils.URL;
 import com.hong.py.registry.ChildrenListener;
+import com.hong.py.registry.StateListener;
 
 import java.util.List;
 
@@ -15,6 +16,10 @@ public interface ZookeeperClient {
     List<String> addChildListener(String path, ChildrenListener listener);
 
     void removeChildListener(String path, ChildrenListener listener);
+
+    void addStateListener(StateListener listener);
+
+    void removeStateListener(StateListener listener);
 
     List<String> getChildren(String path);
 

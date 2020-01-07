@@ -14,7 +14,7 @@ import com.hong.py.remoting.Codec2;
  **/
 public abstract class AbstractEndPoint extends AbstractPeer {
 
-    private Codec2 codec;
+    //private Codec2 codec;
 
     private int timeout;
 
@@ -22,19 +22,19 @@ public abstract class AbstractEndPoint extends AbstractPeer {
 
     public AbstractEndPoint(URL url, ChannelHandler channelHandler) {
         super(url, channelHandler);
-        this.codec=getChannelCodec(url);
+        //this.codec=getChannelCodec(url);
         this.timeout = url.getPositiveParameter(Constants.TIMEOUT_KEY, Constants.DEFAULT_TIMEOUT);
         this.connectTimeout = url.getPositiveParameter(Constants.CONNECT_TIMEOUT_KEY, Constants.DEFAULT_CONNECT_TIMEOUT);
     }
 
-    protected static Codec2 getChannelCodec(URL url) {
+    /*protected static Codec2 getChannelCodec(URL url) {
         String codecName = url.getParameter(Constants.CODEC_KEY, "telnet");
         return ExtensionLoader.getExtensionLoader(Codec2.class).getExtension(codecName);
     }
 
     protected Codec2 getCodec() {
         return codec;
-    }
+    }*/
 
     protected int getTimeout() {
         return timeout;

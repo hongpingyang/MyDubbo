@@ -3,22 +3,28 @@ package com.hong.py.registry.zookeeper;
 import com.hong.py.commonUtils.Constants;
 import com.hong.py.commonUtils.URL;
 import com.hong.py.registry.ChildrenListener;
+import com.hong.py.registry.StateListener;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.api.CuratorWatcher;
+import org.apache.curator.framework.state.ConnectionState;
+import org.apache.curator.framework.state.ConnectionStateListener;
 import org.apache.curator.retry.RetryNTimes;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 public class CuratorZookeeperClient implements ZookeeperClient {
 
     private final  URL url;
     private final CuratorFramework client;
     private Map<String, ConcurrentHashMap<ChildrenListener,CuratorWatcher>> listeners=new ConcurrentHashMap<>();
+    private final Set<StateListener> stateListeners = new CopyOnWriteArraySet<StateListener>();
 
     public CuratorZookeeperClient(URL url) {
         this.url=url;
@@ -26,12 +32,28 @@ public class CuratorZookeeperClient implements ZookeeperClient {
         try {
 
             client=curatorClient();
+            //监听StateListener
+            client.getConnectionStateListenable().addListener(new ConnectionStateListener() {
+                @Override
+                public void stateChanged(CuratorFramework client, ConnectionState state) {
+                    if (state == ConnectionState.LOST) {
+                        CuratorZookeeperClient.this.stateChanged(StateListener.DISCONNECTED);
+                    } else if (state == ConnectionState.CONNECTED) {
+                        CuratorZookeeperClient.this.stateChanged(StateListener.CONNECTED);
+                    } else if (state == ConnectionState.RECONNECTED) {
+                        CuratorZookeeperClient.this.stateChanged(StateListener.RECONNECTED);
+                    }
+                }
+            });
+
             client.start();
 
         } catch (Exception e) {
             throw new IllegalStateException(e.getMessage(), e);
         }
     }
+
+
 
     public CuratorFramework curatorClient() {
 
@@ -142,6 +164,26 @@ public class CuratorZookeeperClient implements ZookeeperClient {
             if (watcher != null) {
                 ((CuratorWatcherImpl)watcher).unWatch();
             }
+        }
+    }
+
+    @Override
+    public void addStateListener(StateListener listener) {
+        stateListeners.add(listener);
+    }
+
+    @Override
+    public void removeStateListener(StateListener listener) {
+        stateListeners.remove(listener);
+    }
+
+    public Set<StateListener> getSessionListeners() {
+        return stateListeners;
+    }
+
+    private void stateChanged(int state) {
+        for (StateListener sessionListener : getSessionListeners()) {
+            sessionListener.stateChanged(state);
         }
     }
 

@@ -83,9 +83,9 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
 
     /**
      * 订阅
-     * @param addParameter
+     * @param url 要订阅的url
      */
-    public void subscribe(URL addParameter) {
+    public void subscribe(URL url) {
         setConsumerUrl(url);
         registry.subscribe(url, this);
     }
@@ -121,15 +121,15 @@ public class RegistryDirectory<T> implements NotifyListener, Directory<T> {
 
     private void refreshInvoker(List<URL> invokerUrls) {
 
-        if (invokerUrls != null && invokerUrls.size() == 1 && invokerUrls.get(0)!=null&&
-                invokerUrls.get(0).getParameter(Constants.PROTOCOL_KEY, Constants.DEFAULT_PROTOCOL) == Constants.EMPTY_PROTOCOL) {
-              this.forbidden=true;
-              this.methodInvokerMap=null;
-              destroyAllInvokers();
+        if (invokerUrls != null && invokerUrls.size() == 1 && invokerUrls.get(0) != null &&
+                Constants.EMPTY_PROTOCOL.equals(invokerUrls.get(0).getProtocol())){
+            this.forbidden = true;
+            this.methodInvokerMap = null;
+            destroyAllInvokers();
 
         } else {
 
-            this.forbidden=false;
+            this.forbidden = false;
             //dubbo://192.168.158.78:20880/com.alibaba.dubbo.demo.DemoService2?anyhost=true&application=demo-provider&bean.name=com.alibaba.dubbo.demo.DemoService2&dubbo=2.0.2&generic=false&interface=com.alibaba.dubbo.demo.DemoService2&methods=sayHello&pid=27096&side=provider&timestamp=1577760953001
             Map<String, Invoker<T>> oldUrlInvokerMap = this.urlInvokerMap; // local reference
             if (invokerUrls.isEmpty() && this.cachedInvokerUrls != null) {

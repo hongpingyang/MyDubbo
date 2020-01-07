@@ -9,6 +9,7 @@ import com.hong.py.logger.LoggerFactory;
 import com.hong.py.registry.ChildrenListener;
 import com.hong.py.registry.NotifyListener;
 import com.hong.py.registry.Registry;
+import com.hong.py.registry.StateListener;
 import com.hong.py.registry.zookeeper.ZookeeperClient;
 import com.hong.py.rpc.RpcException;
 
@@ -20,6 +21,7 @@ public class ZookeeperRegistry  implements Registry {
 
     protected final Logger logger = LoggerFactory.getLogger(ZookeeperRegistry.class);
     private final static String DEFAULT_ROOT = "dubbo";
+
     private final Set<URL> registered = new ConcurrentHashSet<>();
 
     //会进行重试
@@ -50,6 +52,38 @@ public class ZookeeperRegistry  implements Registry {
         this.root = group; // 必须都是/开头
         this.client = zookeeperTransporter.connect(url);
 
+        // zk状态改变监听，RECONNECTED 会尝试恢复
+        this.client.addStateListener(new StateListener() {
+            @Override
+            public void stateChanged(int state) {
+                if (state == RECONNECTED) {
+                    try {
+                        recover();
+                    } catch (Exception e) {
+                        logger.error(e.getMessage(), e);
+                    }
+                }
+            }
+        });
+    }
+
+    private void recover() {
+
+        Set<URL> registered = this.registered;
+        if (registered != null&&!registered.isEmpty()) {
+            for (URL url : registered) {
+                failedRegistered.add(url);
+            }
+        }
+
+        Map<URL, Set<NotifyListener>> subscribed = this.subscribed;
+        if (subscribed != null && !subscribed.isEmpty()) {
+            for (Map.Entry<URL,Set<NotifyListener>> entry: subscribed.entrySet()) {
+                for (NotifyListener listener : entry.getValue()) {
+                    addFailedSubscribe(entry.getKey(), listener);
+                }
+            }
+        }
     }
 
     @Override
@@ -127,10 +161,11 @@ public class ZookeeperRegistry  implements Registry {
         try {
             doSubsribe(url, listener);
         } catch (Throwable e) {
-            logger.error("Failed to subscribe " + url + ", waiting for retry, cause: " + e.getMessage(), e);
-        }
 
-        addFailedSubscribe(url, listener);
+            logger.error("Failed to subscribe " + url + ", waiting for retry, cause: " + e.getMessage(), e);
+
+            addFailedSubscribe(url, listener);
+        }
     }
 
 
@@ -203,7 +238,7 @@ public class ZookeeperRegistry  implements Registry {
                     // /dubbo/com.hong.py.demo.DemoService/providers
                     client.create(path, false);
 
-                    //会构造curatorClient和curatorWatcher监听path下子节点的变化
+                    //会构造curatorClient和curatorWatcher监听path下子节点的变化 dubbo%3A%2F%2F192.168.158.78%3A20880%2Fcom.hong.py.demo.DemoHelloServiceforHpy%3Fapplication%3Dservice-provide%26bean.name%3Dcom.hong.py.demo.DemoHelloServiceforHpy%26bind.ip%3D192.168.158.78%26bind.port%3D20880%26interface%3Dcom.hong.py.demo.DemoHelloServiceforHpy%26methods%3DsayHello%26pid%3D1748%26side%3Dprovider%26timestamp%3D1578387568560
                     List<String> children = client.addChildListener(path, zkListener);
 
                     if (children != null) {
@@ -212,8 +247,8 @@ public class ZookeeperRegistry  implements Registry {
                 }
 
                 //回调NotifyListener,更新本地缓存信息
-                //第一次监听的时候设置url的protocol为Empty
-                //达到区别和清空Invokers的作用
+                //第一次监听的时候children为空的话 会设置url的protocol为Empty，达到区别和清空Invokers的作用。
+                //如果children不为空，则会到directory会生成invoker
                 notify(url, listener, urls);
             }
         } catch (Throwable e) {
