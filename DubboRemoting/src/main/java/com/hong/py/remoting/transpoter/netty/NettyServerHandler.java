@@ -15,6 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class NettyServerHandler extends ChannelDuplexHandler {
 
     //所有连接
+    //当硬件与服务器建立一条链接（channel），我们将活动链接存储到Map中，失效的链接则从map中移除。
     private final Map<String, Channel> channels = new ConcurrentHashMap<String, Channel>(); // <ip:port, channel>
 
     private final URL url;
