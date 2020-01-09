@@ -18,6 +18,10 @@ package com.hong.py.commonUtils;
  **/
 public class Bytes {
 
+    public static void short2bytes(short v, byte[] b) {
+        short2bytes(v, b, 0);
+    }
+
     public static void short2bytes(short v, byte[] b, int off) {
         b[off+1]=(byte)v; //低8位
         b[off + 0] = (byte) (v >>> 8); //高8位
