@@ -29,6 +29,7 @@ public class NettyClient extends AbstractClient {
 
     private static EventLoopGroup eventGroup = new NioEventLoopGroup();
 
+    //channelHandler 为HeaderExchangeHandler
     public NettyClient(URL url, ChannelHandler channelHandler) {
         super(url, channelHandler);
     }

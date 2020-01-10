@@ -35,6 +35,7 @@ public class NettyServer extends AbstractServer implements Server {
     private EventLoopGroup bossGroup;
     private EventLoopGroup workerGroup;
 
+    //channelHandler 为HeaderExchangeHandler
     public NettyServer(URL url, ChannelHandler channelHandler) {
         super(url, channelHandler);
     }

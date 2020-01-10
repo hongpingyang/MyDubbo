@@ -36,11 +36,14 @@ import java.util.Optional;
  **/
 public class NettyCode {
 
-    // header length.
+    // header length. 16个字节 :MAGIC(2)+消息类型(1)+状态（1）+id(8)+内容长度（4）
     protected static final int HEADER_LENGTH = 16;
-    // magic header.
+    // magic header. 2个字节
     protected static final short MAGIC = (short) 0xdabb;
+
+    //消息类型 1个字节
     protected static final byte FLAG_REQUEST = (byte) 0x80;
+    protected static final byte FLAG_TWOWAY=(byte)0x40;
 
     private final ChannelHandler encoder = new InternalEncoder();
 
@@ -89,6 +92,7 @@ public class NettyCode {
         Bytes.short2bytes(MAGIC, header);
 
         header[2]=FLAG_REQUEST;
+        if(req.ismTwoWay()) header[2]|=FLAG_TWOWAY;
 
         //set requset id  8个字节
         Bytes.long2bytes(req.getmId(), header, 4);
@@ -209,7 +213,8 @@ public class NettyCode {
     private Object decodeBody(ByteBuf input, byte[] header,int len) throws IOException {
         byte flag=header[2];
         long id = Bytes.bytes2long(header, 4);
-        if ((flag & FLAG_REQUEST) == 0) {  // decode response.
+        if ((flag & FLAG_REQUEST) == 0) {
+            // decode response.
             Response res = new Response(id);
             // get status.
             byte status = header[3];
@@ -229,7 +234,9 @@ public class NettyCode {
             }
             return res;
         } else {
+            // decode request
             Request req = new Request(id);
+            req.setmTwoWay((flag & FLAG_TWOWAY) != 0);
             try {
                 byte[] data = new byte[len];
                 input.readBytes(data);
