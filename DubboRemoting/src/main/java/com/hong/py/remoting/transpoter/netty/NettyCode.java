@@ -224,7 +224,7 @@ public class NettyCode {
                 input.readBytes(data);
 
                 if (status == Response.OK) {
-                    res.setmResult(Bytes.bytesToObject(data));
+                    res.setmResult(Bytes.bytesToObject(data).get());
                 } else {
                     res.setmErrorMsg(data.toString());
                 }
@@ -240,7 +240,7 @@ public class NettyCode {
             try {
                 byte[] data = new byte[len];
                 input.readBytes(data);
-                req.setData(Bytes.bytesToObject(data));
+                req.setData(Bytes.bytesToObject(data).get());
             } catch (Throwable t) {
                 req.setBroken(true);
                 req.setData(t);

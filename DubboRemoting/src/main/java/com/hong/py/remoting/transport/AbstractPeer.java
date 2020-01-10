@@ -11,7 +11,7 @@ import java.net.InetSocketAddress;
 
 /**
  * 文件描述
- *
+ * channelHandler为com.hong.py.remoting.exchange.support.header.HeaderExchangeHandler
  **/
 public abstract class AbstractPeer implements Endpoint,ChannelHandler {
 

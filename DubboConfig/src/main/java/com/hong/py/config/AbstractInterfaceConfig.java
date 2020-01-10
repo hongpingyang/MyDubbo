@@ -165,7 +165,7 @@ public abstract class AbstractInterfaceConfig extends AbstractMethodConfig {
                     appendParameters(map, application);
                     appendParameters(map, config);
                     map.put("path", RegistryService.class.getName());
-                    map.put("dubbo","1.0.1" /*Version.getProtocolVersion()*/);
+                    //map.put("dubbo","1.0.1" /*Version.getProtocolVersion()*/);
                     map.put(Constants.TIMESTAMP_KEY, String.valueOf(System.currentTimeMillis()));
                     if (ConfigUtils.getPid() > 0) {
                         map.put(Constants.PID_KEY, String.valueOf(ConfigUtils.getPid()));

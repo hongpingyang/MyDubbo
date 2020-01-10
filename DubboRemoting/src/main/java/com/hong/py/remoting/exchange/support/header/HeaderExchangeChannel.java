@@ -94,12 +94,12 @@ public class HeaderExchangeChannel implements ExchangeChannel {
     @Override
     public ExchangeHandler getExchangeHandler() {
 
-        return null;
+        return (ExchangeHandler) this.channel.getChannelHandler();
     }
 
     @Override
     public ChannelHandler getChannelHandler() {
-        return null;
+        return this.channel.getChannelHandler();
     }
 
     @Override

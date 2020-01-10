@@ -62,7 +62,7 @@ public class DubboInvoker<T> implements Invoker<T> {
         String methodName = inv.getMethodName();//方法名
 
         inv.setAttachment(Constants.PATH_KEY, getUrl().getPath());
-        inv.setAttachment(Constants.VERSION_KEY, "1.0");
+        //inv.setAttachment(Constants.VERSION_KEY, "1.0");
 
         //方法有异步标识async=true
         if (getUrl().getMethodParameter(invocation.getMethodName(), Constants.ASYNC_KEY, false)) {
