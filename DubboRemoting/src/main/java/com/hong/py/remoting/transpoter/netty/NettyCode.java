@@ -1,5 +1,7 @@
 package com.hong.py.remoting.transpoter.netty;
 
+import com.hong.py.commonUtils.Bytes;
+import com.hong.py.commonUtils.StringUtils;
 import com.hong.py.commonUtils.URL;
 import com.hong.py.remoting.ChannelBuffer;
 import com.hong.py.remoting.Codec2;
@@ -14,6 +16,7 @@ import io.netty.handler.codec.MessageToByteEncoder;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * 文件描述
@@ -32,6 +35,12 @@ import java.util.List;
  * Copyright © 2020 hongpy Technologies Inc. All Rights Reserved
  **/
 public class NettyCode {
+
+    // header length.
+    protected static final int HEADER_LENGTH = 16;
+    // magic header.
+    protected static final short MAGIC = (short) 0xdabb;
+    protected static final byte FLAG_REQUEST = (byte) 0x80;
 
     private final ChannelHandler encoder = new InternalEncoder();
 
@@ -56,14 +65,11 @@ public class NettyCode {
 
         @Override
         protected void encode(ChannelHandlerContext ctx, Object msg, ByteBuf out) throws Exception {
-            ChannelBuffer buffer = new NettyBackedChannelBuffer(out);
-            Channel ch = ctx.channel();
-            NettyChannel channel = NettyChannel.getOrAddChannel(ch, url, handler);
             try {
                 if (msg instanceof Request) {
-                    encodeRequest(channel, buffer, (Request) msg);
+                    encodeRequest(out, (Request) msg);
                 } else if (msg instanceof Response) {
-                    encodeResponse(channel, buffer, (Response) msg);
+                    encodeResponse(out, (Response) msg);
                 } else if (msg instanceof String) {
                         /*if (isClientSide(channel)) {
                             message = message + "\r\n";
@@ -72,16 +78,66 @@ public class NettyCode {
                         buffer.writeBytes(msgData);*/
                 }
             } finally {
-                NettyChannel.removeChannelIfDisconnected(ch);
             }
         }
     }
 
-    private void encodeRequest(NettyChannel channel, ChannelBuffer buffer, Request msg) {
+    private void encodeRequest(ByteBuf out, Request req) {
 
+        byte[] header = new byte[HEADER_LENGTH];
+        // set magic number. 2个字节
+        Bytes.short2bytes(MAGIC, header);
+
+        header[2]=FLAG_REQUEST;
+
+        //set requset id  8个字节
+        Bytes.long2bytes(req.getmId(), header, 4);
+
+        Optional<byte[]> bytes = Bytes.objectToBytes(req.getData());
+        if (bytes.isPresent()) {
+            Bytes.int2bytes(bytes.get().length,header,12);
+        } else {
+            Bytes.int2bytes(0,header,12);
+        }
+
+        out.writeBytes(header);
+
+        out.writeBytes(bytes.get());
     }
 
-    private void encodeResponse(NettyChannel channel, ChannelBuffer buffer, Response msg) {
+    private void encodeResponse( ByteBuf out, Response res) {
+
+        byte[] header = new byte[HEADER_LENGTH];
+        // set magic number. 2个字节
+        Bytes.short2bytes(MAGIC, header);
+
+        // set response status.
+        byte status = res.getStatus();
+        header[3] = status;
+
+        //set requset id  8个字节
+        Bytes.long2bytes(res.getmId(), header, 4);
+
+        if (status == Response.OK) {
+            Optional<byte[]> bytes  = Bytes.objectToBytes(res.getmResult());
+            if (bytes.isPresent()) {
+                Bytes.int2bytes(bytes.get().length, header, 12);
+            } else {
+                Bytes.int2bytes(0, header, 12);
+            }
+
+            out.writeBytes(header);
+
+            out.writeBytes(bytes.get());
+
+        } else {
+            byte[] bytes  = res.getmErrorMsg().getBytes();
+            Bytes.int2bytes(bytes.length, header, 11);
+
+            out.writeBytes(header);
+
+            out.writeBytes(bytes);
+        }
 
     }
 
@@ -90,10 +146,6 @@ public class NettyCode {
         @Override
         protected void decode(ChannelHandlerContext ctx, ByteBuf input, List<Object> out) throws Exception {
 
-            ChannelBuffer message = new NettyBackedChannelBuffer(input);
-
-            NettyChannel channel = NettyChannel.getOrAddChannel(ctx.channel(), url, handler);
-
             Object msg;
 
             int saveReaderIndex;
@@ -101,28 +153,92 @@ public class NettyCode {
             try {
                 // decode object.
                 do {
-                    saveReaderIndex = message.readerIndex();
+                    saveReaderIndex = input.readerIndex();
                     try {
-                        msg = codec.decode(channel, message);
+
+                        int readable = input.readableBytes();
+                        byte[] header = new byte[Math.min(readable, HEADER_LENGTH)];
+                        input.readBytes(header);
+
+                        msg = NettyCode.this.decode(input, header, readable);
+
                     } catch (IOException e) {
                         throw e;
                     }
                     if (msg == Codec2.DecodeResult.NEED_MORE_INPUT) {
-                        message.readerIndex(saveReaderIndex);
+                        input.readerIndex(saveReaderIndex);
                         break;
                     } else {
                         //is it possible to go here ?
-                        if (saveReaderIndex == message.readerIndex()) {
+                        if (saveReaderIndex == input.readerIndex()) {
                             throw new IOException("Decode without read data.");
                         }
+
                         if (msg != null) {
                             out.add(msg);
                         }
                     }
-                } while (message.readable());
+                } while (input.isReadable());
             } finally {
-                NettyChannel.removeChannelIfDisconnected(ctx.channel());
+
             }
+        }
+    }
+
+
+    private Object decode(ByteBuf input, byte[] header, int readable) throws IOException {
+        // check length.
+        if (readable < HEADER_LENGTH) {
+            return Codec2.DecodeResult.NEED_MORE_INPUT;
+        }
+        // get data length.
+        int len = Bytes.bytes2int(header, 12);
+
+        int tt = len + HEADER_LENGTH;
+
+        if (readable < tt) {
+            return Codec2.DecodeResult.NEED_MORE_INPUT;
+        }
+        try {
+            return decodeBody(input,  header,len);
+        }finally {
+
+        }
+    }
+
+    private Object decodeBody(ByteBuf input, byte[] header,int len) throws IOException {
+        byte flag=header[2];
+        long id = Bytes.bytes2long(header, 4);
+        if ((flag & FLAG_REQUEST) == 0) {  // decode response.
+            Response res = new Response(id);
+            // get status.
+            byte status = header[3];
+            res.setStatus(status);
+            try {
+                byte[] data = new byte[len];
+                input.readBytes(data);
+
+                if (status == Response.OK) {
+                    res.setmResult(Bytes.bytesToObject(data));
+                } else {
+                    res.setmErrorMsg(data.toString());
+                }
+            } catch (Exception e) {
+                res.setStatus(Response.CLIENT_ERROR);
+                res.setmErrorMsg(e.getMessage());
+            }
+            return res;
+        } else {
+            Request req = new Request(id);
+            try {
+                byte[] data = new byte[len];
+                input.readBytes(data);
+                req.setData(Bytes.bytesToObject(data));
+            } catch (Throwable t) {
+                req.setBroken(true);
+                req.setData(t);
+            }
+            return req;
         }
     }
 }

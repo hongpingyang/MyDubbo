@@ -20,6 +20,8 @@ public class Response {
 
     public static final byte SERVICE_ERROR =70;
 
+    public static final byte CLIENT_ERROR = 90;
+
     private byte mStatus=OK;
 
     private Object mResult;

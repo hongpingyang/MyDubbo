@@ -15,6 +15,8 @@ public class Request {
 
     private Object data;
 
+    private boolean broken;
+
     public Request() {
         mId = newId();
     }
@@ -46,4 +48,11 @@ public class Request {
     }
 
 
+    public void setBroken(boolean b) {
+        broken=b;
+    }
+
+    public boolean isBroken() {
+        return broken;
+    }
 }
