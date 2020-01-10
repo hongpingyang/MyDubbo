@@ -14,7 +14,7 @@ import com.hong.py.remoting.exchange.support.DefaultFuture;
 import com.hong.py.remoting.transport.ChannelHandlerDelegate;
 
 /**
- * 服务端和客户端的  消息处理类,会wrap真正的处理ExchangeHandler
+ * 服务端和客户端的  接收到的消息处理类,会wrap真正的处理ExchangeHandler(com.hong.py.rpc.dubbo.DubboRequestHandler)
  * 都会调用HeaderExchangeChannel来处理
  * 有些在这里处理待完成
  */
@@ -110,7 +110,7 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
                     Response response = handleRequest(exchangeChannel, request);
                     channel.send(response);
                 } else {
-                    this.exchangeHandler.received(exchangeChannel, message);
+                    this.exchangeHandler.received(exchangeChannel, ((Request) message).getData());
                 }
             } else if (message instanceof Response) {
                 Response response = (Response) message;

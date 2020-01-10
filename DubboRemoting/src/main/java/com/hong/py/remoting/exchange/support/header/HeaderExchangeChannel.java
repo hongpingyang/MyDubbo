@@ -14,7 +14,7 @@ import java.net.InetSocketAddress;
 import java.util.concurrent.locks.ReadWriteLock;
 
 /**
- * HeaderExchangeHandler里会调用HeaderExchangeChannel来处理发送
+ * 在HeaderExchangeClient构造里被构造
  * HeaderExchangeChannel会调用NettyChannel来进行真正的发送
  **/
 public class HeaderExchangeChannel implements ExchangeChannel {
@@ -54,6 +54,7 @@ public class HeaderExchangeChannel implements ExchangeChannel {
         send(message, getUrl().getParameter(Constants.SENT_KEY, false));
     }
 
+    //send是直接发送，默认是oneway
     @Override
     public void send(Object message, boolean sent) throws RemotingException {
         if (message instanceof Request||
@@ -61,7 +62,11 @@ public class HeaderExchangeChannel implements ExchangeChannel {
                 message instanceof String) {
             channel.send(message,sent);
         }else {
-          //要干啥?
+            Request request = new Request();
+            //request.setVersion(Version.getProtocolVersion());
+            request.setmTwoWay(false);
+            request.setData(message);
+            channel.send(request, sent);
         }
     }
 
@@ -70,12 +75,12 @@ public class HeaderExchangeChannel implements ExchangeChannel {
         return request(request, getUrl().getPositiveParameter(Constants.TIMEOUT_KEY, Constants.DEFAULT_TIMEOUT));
     }
 
-    //处理请求 寄存到DefaultFuture里，等待响应
+    //处理请求 寄存到DefaultFuture里，等待响应 默认是twoway
     @Override
     public ResponseFuture request(Object request, int timeout) throws RemotingException {
         Request req = new Request();
         req.setData(request); //request 实际是invocation
-        req.setmTwoWay(true);
+        req.setmTwoWay(true); //
         DefaultFuture future = new DefaultFuture(channel, req, timeout);
         try {
             channel.send(req);

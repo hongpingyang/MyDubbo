@@ -15,11 +15,11 @@ public class HeaderExchange implements Exchanger {
 
     @Override
     public ExchangeServer bind(URL url, ExchangeHandler handler) throws RemotingException {
-        return new HeaderExchangeServer(Transporters.bind(url, handler));
+        return new HeaderExchangeServer(Transporters.bind(url, new HeaderExchangeHandler(handler)));
     }
 
     @Override
     public ExchangeClient connect(URL url, ExchangeHandler handler) throws RemotingException {
-        return new HeaderExchangeClient(Transporters.connect(url, handler));
+        return new HeaderExchangeClient(Transporters.connect(url, new HeaderExchangeHandler(handler)));
     }
 }

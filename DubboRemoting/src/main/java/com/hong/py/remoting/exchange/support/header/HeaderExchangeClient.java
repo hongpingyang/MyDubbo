@@ -15,7 +15,7 @@ import java.net.InetSocketAddress;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 
 /**
- *  invoker 里调用的Client
+ *  invoker 里调用的Client client 为nettyClient
  *  HeaderExchangeClient里调用HeaderExchangeChannel来处理消息发送
  **/
 public class HeaderExchangeClient implements ExchangeClient {
