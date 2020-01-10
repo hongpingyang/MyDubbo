@@ -24,8 +24,6 @@ public class NettyClientInitializer extends ChannelInitializer<Channel> {
 
     private final ChannelHandler client;
 
-    private final NettyCode code;
-
     public NettyClientInitializer(URL url, ChannelHandler client) {
         if (url == null) {
             throw new IllegalArgumentException("url == null");
@@ -35,18 +33,19 @@ public class NettyClientInitializer extends ChannelInitializer<Channel> {
         }
         this.url = url;
         this.client = client;
-        this.code = new NettyCode(url, client);
     }
 
+    //Decoder is not a @Sharable handler, so can't be added or removed multiple times.
     @Override
     protected void initChannel(Channel channel) throws Exception {
         //ByteBuf delimiter = Unpooled.copiedBuffer("$_$".getBytes());
+        NettyCode code=new NettyCode(url, client);
         channel.pipeline()
                 //.addLast("decoder", adapter.getDecoder())
                 //.addLast("encoder", adapter.getEncoder())
                 //.addLast("delimiterBasedFrameDecoder", new DelimiterBasedFrameDecoder(4096, delimiter))
-                .addLast("decode", this.code.getDecoder())
-                .addLast("encode", this.code.getEncoder())
+                .addLast("decode", code.getDecoder())
+                .addLast("encode", code.getEncoder())
                 .addLast("handler", new NettyClientHandler(url,client));
 
     }

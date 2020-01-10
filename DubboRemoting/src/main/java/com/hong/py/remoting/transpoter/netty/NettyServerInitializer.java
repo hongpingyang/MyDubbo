@@ -16,8 +16,6 @@ public class NettyServerInitializer extends ChannelInitializer<NioSocketChannel>
 
     private final ChannelHandler server;
 
-    private final NettyCode code;
-
     public NettyServerInitializer(URL url, ChannelHandler server) {
         if (url == null) {
             throw new IllegalArgumentException("url == null");
@@ -27,16 +25,16 @@ public class NettyServerInitializer extends ChannelInitializer<NioSocketChannel>
         }
         this.url = url;
         this.server = server;
-        this.code = new NettyCode(url, server);
     }
 
     @Override
     protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
         //ByteBuf delimiter = Unpooled.copiedBuffer("$_$".getBytes());
+        NettyCode code=new NettyCode(url, server);
         nioSocketChannel.pipeline()
                  //.addLast("delimiterBasedFrameDecoder", new DelimiterBasedFrameDecoder(4096, delimiter))
-                 .addLast("decode", this.code.getDecoder())
-                 .addLast("encode", this.code.getEncoder())
+                 .addLast("decode", code.getDecoder())
+                 .addLast("encode", code.getEncoder())
                  .addLast("handler", new NettyServerHandler(url, server));
     }
 }
