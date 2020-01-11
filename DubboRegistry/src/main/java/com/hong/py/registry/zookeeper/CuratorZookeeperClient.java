@@ -47,7 +47,6 @@ public class CuratorZookeeperClient implements ZookeeperClient {
             });
 
             client.start();
-
         } catch (Exception e) {
             throw new IllegalStateException(e.getMessage(), e);
         }
@@ -57,7 +56,11 @@ public class CuratorZookeeperClient implements ZookeeperClient {
 
     public CuratorFramework curatorClient() {
 
-        int timeout = url.getParameter(Constants.TIMEOUT_KEY, 5000);
+        //之前设置为5000ms，超时的话会进行重试，也能连接上。
+        // org.apache.curator.curatorconnectionlossexception:
+        //zookeeper的链接注册过程没完成然后就去获取zk客户端的链接状态了，
+        // 只需将注册zookeeper的超时时间加大就好了。
+        int timeout = url.getParameter(Constants.TIMEOUT_KEY, 30000);
 
         CuratorFrameworkFactory.Builder builder=CuratorFrameworkFactory.builder()
                 .connectString(url.getAddress())
