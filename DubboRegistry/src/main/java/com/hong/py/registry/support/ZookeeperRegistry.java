@@ -448,7 +448,7 @@ public class ZookeeperRegistry  implements Registry {
 
     @Override
     public boolean isAvailable() {
-        return true;
+        return client.isConnected();
     }
 
     @Override
