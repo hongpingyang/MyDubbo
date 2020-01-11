@@ -56,9 +56,9 @@ public class CuratorZookeeperClient implements ZookeeperClient {
 
     public CuratorFramework curatorClient() {
 
-        //之前设置为5000ms，超时的话会进行重试，也能连接上。
+        //之前设置为5000ms报超时，会进行重试，也能连接上。
         // org.apache.curator.curatorconnectionlossexception:
-        //zookeeper的链接注册过程没完成然后就去获取zk客户端的链接状态了，
+        //是因为zookeeper的链接注册过程没完成然后就去获取zk客户端的链接状态了，
         // 只需将注册zookeeper的超时时间加大就好了。
         int timeout = url.getParameter(Constants.TIMEOUT_KEY, 30000);
 
