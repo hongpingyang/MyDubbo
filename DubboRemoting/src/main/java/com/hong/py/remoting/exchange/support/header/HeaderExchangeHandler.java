@@ -74,7 +74,7 @@ public class HeaderExchangeHandler implements ChannelHandlerDelegate {
      * @return
      */
     private Response handleRequest(ExchangeChannel exchangeChannel, Request request) {
-        Response response = new Response();
+        Response response = new Response(request.getmId());
         // find handler by message class.
         Object msg = request.getData();//msg 实际是invocation
         try {
