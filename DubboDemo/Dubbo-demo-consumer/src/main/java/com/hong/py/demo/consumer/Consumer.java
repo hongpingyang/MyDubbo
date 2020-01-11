@@ -20,7 +20,9 @@ public class Consumer {
                 String hello = demoService.sayHello("world"); // call remote method
                 System.out.println(hello); // get result
 
-            } catch (Throwable throwable) {
+            }  catch (Exception e) {
+                System.out.println(e.getMessage());
+            }catch (Throwable throwable) {
                 throwable.printStackTrace();
             }
         }
