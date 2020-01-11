@@ -40,6 +40,8 @@ public class NettyCode {
     protected static final int HEADER_LENGTH = 16;
     // magic header. 2个字节
     protected static final short MAGIC = (short) 0xdabb;
+    protected static final byte MAGIC_HIGH = Bytes.short2bytes(MAGIC)[0];
+    protected static final byte MAGIC_LOW = Bytes.short2bytes(MAGIC)[1];
 
     //消息类型 1个字节
     protected static final byte FLAG_REQUEST = (byte) 0x80;
@@ -191,6 +193,11 @@ public class NettyCode {
 
 
     private Object decode(ByteBuf input, byte[] header, int readable) throws IOException {
+
+        if (readable > 0 && header[0] != MAGIC_HIGH
+                || readable > 1 && header[1] != MAGIC_LOW) {
+
+        }
         // check length.
         if (readable < HEADER_LENGTH) {
             return Codec2.DecodeResult.NEED_MORE_INPUT;
