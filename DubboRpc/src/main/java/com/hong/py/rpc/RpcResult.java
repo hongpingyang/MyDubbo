@@ -42,27 +42,30 @@ public class RpcResult implements Result, Serializable {
 
     @Override
     public Object getValue() {
-        return null;
+        return result;
     }
 
     @Override
     public Throwable getException() {
-        return null;
+        return exception;
     }
 
     @Override
     public boolean hasException() {
-        return false;
+        return exception!=null;
     }
 
     @Override
     public Object recreate() throws Throwable {
-        return null;
+        if (exception != null) {
+            throw  exception;
+        }
+        return result;
     }
 
     @Override
     public Object getResult() {
-        return null;
+        return result;
     }
 
     @Override
@@ -78,5 +81,10 @@ public class RpcResult implements Result, Serializable {
     @Override
     public String getAttachment(String key, String defaultValue) {
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "RpcResult [result=" + result + ", exception=" + exception + "]";
     }
 }
