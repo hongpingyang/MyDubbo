@@ -21,6 +21,12 @@ import java.util.Optional;
  **/
 public class Bytes {
 
+    public static byte[] short2bytes(short v) {
+        byte[] ret = {0, 0};
+        short2bytes(v, ret);
+        return ret;
+    }
+
     public static void short2bytes(short v, byte[] b) {
         short2bytes(v, b, 0);
     }
